@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.settings-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.settings-container .container-main {
+    width: 90%;
+    margin: auto;
+    background-color: #EBF3F5;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+
+}
+.settings-container .container-main .nav {
+    height: 100vh;
+    padding-top: 50px;
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid black;
+    
+}
+.settings-container .container-main .contents {
+    width: 80%;
+    padding-top: 50px;
+}
+.settings-container .container-main .contents {
+    font-size: 25px;
+    font-weight: 100;
+}
+.settings-container .container-main .contents .box-contents{
+    margin-top: 50px;
+    width: 100%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow:  1px 1px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px     ;
+}
+.settings-container .container-main .contents .box-contents .part-one{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main input{
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow:  1px 1px rgba(0, 0, 0, 0.2);
+    padding: 15px;  
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main label{
+    font-size: 18px;
+}
+
+.settings-container .container-main .contents .box-contents .part-two .form-container-main .pass-username{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main .password{
+    display: flex;
+    flex-direction: column  ;
+    width: 90%;
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main .username{
+    display: flex;
+    flex-direction: column  ;
+    width: 60%;
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main{
+    width: 80%;
+}
+.settings-container .container-main .contents .box-contents .part-two .form-container-main .user-name{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top:50px;
+}
+.settings-container .container-main .contents .box-contents .part-two .save-button{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 50px;
+    
+}
+.settings-container .container-main .contents .box-contents .part-two .save-button button{
+    background-color: #f8cb58;
+padding: 10px 20px;
+border: none;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.settings-container .container-main .contents .box-contents .profile-container{
+    display: flex;
+}
+.settings-container .container-main .contents .box-contents .profile-container .profile-details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.settings-container .container-main .contents .box-contents .profile-icon{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.settings-container .container-main .contents .box-contents .profile-container p{
+    font-size: 15px;
+}
+.settings-container .container-main .contents .box-contents .profile-icon img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+
+
+@media(max-width:768px){
+    .settings-container .container-main {
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    .settings-container .container-main .contents {
+        padding-top: 10px;
+    }
+    .settings-container .container-main .contents .box-contents {
+        padding: 50px 30px;
+    }
+    .settings-container .container-main .contents .box-contents .part-two .form-container-main .user-name {
+        width: 100%;
+    }
+    .settings-container .container-main .contents .box-contents .part-two .form-container-main .password {
+        width: 100%;
+    }
+}
+@media(max-width:650px){
+    .settings-container .container-main .contents .box-contents .part-two .form-container-main {
+        width: 95%;
+    }
+    .settings-container .container-main {
+        gap: 0;
+    }
+    .settings-container .container-main .contents {
+        width: 100%;
+    }
+}

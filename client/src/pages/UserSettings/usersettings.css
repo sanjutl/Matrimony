@@ -1,0 +1,271 @@
+.settings-container5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.settings-container5 .container-main5 {
+  width: 90%;
+  background-color: #ebf3f5;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.settings-container5 .container-main5 .heading5 h1 {
+  margin-bottom: 50px;
+}
+
+.settings-container5 .container-main5 .contents5 {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 50px;
+  font-size: 25px;
+  font-weight: 100;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 {
+  margin-top: 10px;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 input {
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 label {
+  font-size: 18px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .pass-username5 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .password5,
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .username5 {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 {
+  width: 80%;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .user-name5 {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 50px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 50px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 button:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 .edit-button5 button {
+  background-color: blue;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 .edit-button5 button:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .profile-container5 {
+  display: flex;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .profile-container5 .profile-details5 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.email-item1 {
+  display: flex;
+  margin-top: 15px;
+  justify-content: start;
+  gap: 10px;
+}
+
+.mail-icon {
+  font-size: 20px;
+  width: 12px;
+  height: 12px;
+  background-color: green;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.email-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-text p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.email-text span {
+  font-size: 15px;
+  color: black;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.add-email-button1 {
+  background-color: #00509e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .profile-icon5 {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .profile-container5 p {
+  font-size: 15px;
+}
+
+.settings-container5 .container-main5 .contents5 .box-contents5 .profile-icon5 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .settings-container5 .container-main5 {
+    width: 95%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .settings-container5 .container-main5 .contents5 {
+    font-size: 20px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 {
+    padding: 15px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .pass-username5 {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .password5,
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .username5 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 {
+    width: 100%;
+  }
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 .user-name5{
+    margin-left: 100px;
+    align-items: center;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .profile-container5 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .profile-icon5 {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-container5 .container-main5 {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+
+  .settings-container5 .container-main5 .contents5 {
+    font-size: 18px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 {
+    padding: 10px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 {
+    justify-content: center;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 button {
+    width: 100%;
+  }
+
+  .settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 .edit-button5 button {
+    width: 100%;
+  }
+}

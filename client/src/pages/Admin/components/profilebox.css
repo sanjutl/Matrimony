@@ -1,0 +1,59 @@
+.main-container-profiles {
+  width: 90%;
+}
+.main-container-profiles .profiles {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: space-around; */
+  padding: 30px 0px;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.main-container-profiles .profiles {
+  color: #f8cb58;
+}
+.main-container-profiles .profiles .custom-link {
+  text-decoration: none;
+  color: #f8cb58;
+}
+.custom-link {
+  text-decoration: none;
+  color: #f8cb58;
+  flex-shrink: 0;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* .profile-names,
+.profiles-id {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} */
+.profile-content div{
+    width: 20%;
+}
+
+.profile-names{
+    text-align: left;
+}
+@media(max-width:650px){
+  .profile-content {
+    flex-direction: column;
+  }
+  .profile-content div{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,367 @@
+/* Global styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .landing-main-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url("../../../assets/loginImage.jpg") no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    background-position: top;
+  }
+  
+  /* Left text section */
+  .landing-text-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 350px;
+  
+    
+  }
+  
+  .landing-text-container h1 {
+    font-size: 4.5rem;
+    margin: 0 0 10px;
+    font-style: normal;
+    color: white;
+  }
+  
+  
+  .landing-text-container p {
+    font-size: 1.5rem;
+    margin: 1px 0;
+    color: white;
+    margin-left: 25px;
+  }
+  
+  /* Form container */
+  /* Form container */
+  .landing-form-container {
+    width: 420px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    height: 420px;
+  }
+  
+  /* Header div for Create a Matrimony Profile */
+  .landing-form-header {
+    background-color: #f8cb58;
+    padding: 15px;
+    margin: -20px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  
+  .landing-form-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  
+  .landing-form-subheader {
+    padding: 10px;
+    margin: -20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-align: center;
+  }
+  
+  .landing-form-subheader h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  
+  
+  .landing-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .landing-form-container label {
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    margin-left: 13px;
+  }
+  .fp{
+    text-align: center;
+  }
+  .fp a{
+    text-decoration: none;
+  }
+  .signin {
+    text-align: center;
+  }
+  .signin a{
+    text-decoration: none;
+  }
+  .landing-form-container input {
+    width: 96%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+  .landing-form-container button {
+    background-color: #f8cb58;
+    width: 93%;
+    margin-left: 13px;
+    color:white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  .landing-form-container
+  .landing-form-container button:hover {
+    background-color: #e65100;
+    color: white;
+  }
+  
+  .landing-terms {
+    font-size: 0.8rem;
+    color: #777;
+    text-align: left;
+  }
+  .signin{
+    display: flex ;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .signin p{
+    margin: 0;
+    padding-right: 10px;
+  }
+  .passwordValidation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 8px; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+  }
+  .landing-main-container .forgot-password-link{
+    color: blue;
+    cursor: pointer;
+  }
+  .landing-main-container .forgot-password-link:hover{
+    color:#f8cb58
+  }
+
+  .passwordValidation li {
+    font-size: 12px;
+    text-align: left;
+    color: red; 
+    margin-left: 18px;
+  }
+  .forgot-password-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    width: 500px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-content input {
+    width: 90%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+  }
+  
+  .modal-content button {
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .password-container input {
+    padding-right: 40px;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 30px;
+    bottom: 5px;
+    cursor: pointer;
+    color: gray;
+  }
+  
+  .password-toggle:hover {
+    color: black;
+  }
+  @media (max-width: 1024px) {
+    .landing-main-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+  
+    .landing-text-container {
+      max-width: 80%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .landing-form-container {
+      width: 80%;
+    }
+    .landing-form-container label {
+      margin-left: 30px;
+    }
+    
+    .landing-form-container input{
+      width:92%;
+    }
+    .landing-form-container button {
+      width: 80%;
+      margin-left: 72px;
+    }
+    .password-container input {
+      font-size: 15px;
+      padding: 9px 38px 9px 10px;
+    }
+    .toggle-password {
+      font-size: 21px;
+      right: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    .landing-main-container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+  
+    .landing-text-container {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .landing-text-container h1 {
+      font-size: 3rem;
+    }
+  
+  
+    .landing-text-container p {
+      font-size: 1.5rem;
+    }
+  
+    .landing-form-container {
+      width: 90%;
+      height: auto;
+    }
+  
+    .landing-form-container button {
+      width: 95%;
+      margin-left: 0;
+    }
+  
+    
+    .landing-form-container input{
+      width: 95%;
+    }
+  
+    .landing-form-container label {
+      margin-left: 0;
+    }
+    .password-container input {
+      padding-right: 40px;
+    }
+    
+  }
+  
+  
+  
+  
+  @media (max-width: 495px) {
+    .landing-text-container h1 {
+      font-size: 2rem;
+    }
+  
+   
+  
+    .landing-text-container p {
+      font-size: 0.8rem;
+      margin-right: 25px;
+    }
+  
+    .landing-form-container {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .landing-form-container input{
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+  
+    .landing-form-container button {
+      padding: 8px;
+      font-size: 0.9rem;
+    }
+  
+    .landing-form-header h3 {
+      font-size: 1rem;
+    }
+  
+    .landing-form-subheader h4 {
+      font-size: 0.9rem;
+    }
+  }
+  

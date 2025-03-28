@@ -1,0 +1,843 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  .mainContainer {
+    width: 100%;
+    /* margin-left: 3rem; */
+  }
+  .SubContainer {
+    margin-left: 5rem;
+    position: relative;
+  }
+  .Container {
+    width: 95%;
+    /* border: 2px solid #666; */
+    margin-top: 5rem;
+  }
+  .OuterBox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    gap: 10px;
+    /* padding-top: 5rem; */
+  }
+  .SmallBox {
+    background-color: #d9d9d9;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .BigBox {
+    background-color: #d9d9d9;
+    width: 100%;
+    height: 80px;
+    border-radius: 10px;
+  }
+  .ProfileDiv{
+    width: 20%;
+    /* background: aliceblue; */
+    /* height:450px; */
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    border-radius: 10px;
+    border: 2px solid #d9d9d9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .ProfileCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid #d0e4f5; */
+    border-radius: 12px;
+    background-color: white;
+    padding: 20px;
+  
+    /* margin-bottom: 20px; */
+  }
+  
+  .ProfileImage {
+    background-color: #f0c040;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ProfileImage img {
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .ProfileDetails {
+    text-align: center;
+    color: #333;
+  }
+  
+  .Greeting {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .UserName {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 5px;
+  }
+  
+  .MemberId {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .MembershipStatus {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .UpgradeButton {
+    background-color: transparent;
+    color: #666;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .UpgradeButton:hover {
+    background-color: #f0c040;
+    color: #ffff;
+  }
+  .ProfileCompletion {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+    border-top: 2px solid #d9d9d9;
+    border-bottom: 2px solid #d9d9d9;
+  
+    margin-top: 15px;
+  }
+  
+  .ProfileCompletion p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .ProfileCompletion button {
+    background-color: transparent;
+    color: #333;
+    padding: 8px 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .ProfileCompletion button:hover {
+    background-color: #f0c040;
+    color: white;
+    border-color: #f0c040;
+  }
+  .LinkIcon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 0 5px 0;
+  }
+  .link {
+    /* border: 2px solid #666; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 13px;
+    /* padding: 5px; */
+    /* gap: 10px; */
+  }
+  .link a {
+    text-decoration: none;
+    color: #333;
+  }
+  .Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Icon:hover {
+    color: #f0c040;
+  }
+  
+  .SettingsMain {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+  }
+  .Dropdown {
+    width: 100%;
+    /* padding: 5px; */
+    font-size: 13px;
+    color: #333;
+    /* border: 1px solid #ccc; */
+    border-style: none;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: left;
+  }
+  
+  .Dropdown:focus {
+    outline: none;
+    border-color: #f0c040;
+    font-size: 12px;
+    color: #333;
+  }
+  /*
+    .Dropdown:hover {
+      color: #f0c040;
+    } */
+  .TopRecommendation {
+    /* border: 2px solid #666; */
+    margin-top: 3rem;
+  }
+  .SeeAll {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  .SeeAll a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+  }
+  .SpanArrow {
+    color: #f0c040;
+    font-weight: 700;
+  }
+  .trContentDisplay {
+    display: grid;
+    gap: 15px;
+    margin: 20px 0;
+    grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+    max-width: 1600px;
+    margin-bottom: 5rem;
+  }
+  /* .trContentDisplay {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 10px; 
+    width: 100%; 
+    margin: 20px 0 20px 0;
+   
+  } */
+  .TrContent {
+    color: #535353;
+  }
+  .trCard {
+    border-radius: 10px;
+    width: 236px;
+    height: 398px;
+    background-color: #f0c040;
+    cursor: pointer;
+    overflow: hidden; /* Ensures no overflow issues */
+  }
+  
+  .trCardImg {
+    width: 100%;
+    height: 330px; 
+  }
+  
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .trCardDetails {
+    width: 100%;
+    height: 68px; 
+    background-color: #f0c040;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+    .trUserName {
+      color: #fff;
+      font-weight: 900;
+      padding-left: 10px;
+    }
+    .trUserDetails{
+      color: #fff;
+      font-weight: 700;
+      padding-left: 10px;
+  
+    }
+  /* .trCardDetailSub{
+       padding: 10px 0 0 10px; 
+      
+  } */
+  .LikeButton {
+    width: 30px;
+    height: 30px;
+    /* padding: 5px 0 0 10px; */
+  
+    /* background-color: #d9d9d9; */
+  }
+  .likedHeartBefore {
+    color: #fff;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    /* color: transparent; */
+    /* border: 1px solid #fff; */
+  }
+  .likedHeart {
+    transform: scale(1.3);
+  }
+  
+  .PreferenceDiv {
+    width: 100%;
+    /* height: ; */
+    /* border: 2px solid #666; */
+    margin: 20px 0 20px 0;
+  }
+  .preferenceContent {
+    width: 95%;
+    /* height: 160px; */
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(269px, 1fr));
+  gap: 10px;
+    margin: 20px 0 30px 0;
+  }
+  .preferenceContentCard {
+    width: 268px;
+    height: 160px;
+    background-image: url("../../assets/34afa5c3459e1eb85a56483d57ab6264.jpeg");
+    background-size: 268px 160px;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    flex: 0 270 1;
+    cursor: pointer;
+  }
+  
+  .preferenceContentCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.5),
+      transparent,
+      rgba(0, 0, 0, 0.5)
+    );
+    pointer-events: none;
+  }
+  
+  .PreferenceNameDiv {
+    position: absolute;
+    /* border: 2px solid #666; */
+    bottom: 10px;
+    left: 25px;
+  }
+  .PreferenceName {
+    color: #fff;
+  }
+  .ExploreMatrimonyDiv {
+    /* border: 2px solid #666; */
+    width: 95%;
+    margin: 20px 0 20px 0;
+  }
+  .ExploreContent {
+    margin-bottom: 30px;
+    /* border: 2px solid #222; */
+  }
+  .ExploreContentIcons {
+    display: grid;
+    width: 90%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  place-items: center;
+    padding: 10px;
+  }
+  .ExploreIcons {
+    width: 100px;
+    /* border: 2px solid black; */
+  }
+  .ExplorePara {
+    color: #666;
+    font-size: 10px;
+    text-align: start;
+  }
+  .Dropdown option {
+    border-style: none;
+  }
+  .DropdownSecond {
+    width: 100%;
+    /* padding: 5px; */
+    font-size: 13px;
+    color: #333;
+    /* border: 1px solid #ccc; */
+    border-style: none;
+    border-radius: 4px;
+    /* background-color: #fff; */
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+  }
+  .DropdownSecond::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+  .DropdownMenuSecond {
+    display: none;
+    position: absolute;
+    top: calc(70% + 5px);
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #666;
+    z-index: 100;
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 600;
+    color: #666;
+  }
+  .show {
+    display: block;
+    
+  }
+  .DropdownItemSecond {
+    padding: 5px;
+    border-style: none;
+  }
+  .HelpButton {
+    cursor: pointer;
+    width: 100%;
+  }
+  /* Ham burger */
+  .HamburgerMain {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .Hamburger,.FilterHam {
+    width: 70px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: fixed;
+    top: 30px;
+    right: 10px;
+  
+    gap: 5px;
+  
+    display: none;
+  }
+  
+  .ham1,
+  .ham2,
+  .ham3 {
+    /* width: 30px; */
+    height: 5px;
+    background-color: #f0c040;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  .ham1 {
+    width: 30px;
+    position: relative;
+  }
+  .ham2 {
+    width: 50px;
+  }
+  .ham3 {
+    position: relative;
+    width: 30px;
+    left: 20px;
+  }
+  
+  .open1 {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    left: 0;
+  }
+  
+  .open2 {
+    opacity: 0;
+  }
+  
+  .open3 {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    left: 0;
+  }
+  /* drawer */
+  .drawer {
+    position: fixed;
+    top: 40px;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    /* background-color: #f0c040; */
+    box-shadow: -2px 0 5px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.7s ease-in-out, opacity 0.6s ease-in-out;
+    opacity: 0;
+    overflow:hidden;
+    display: none;
+    border-top-right-radius: 10px;
+  }
+  
+  .drawerOpen {
+    left:  0;
+    top: 0;
+    display: block;
+    opacity: 1;
+    z-index: 20;
+  }
+  
+  .drawerClosed {
+    left: -300px;
+    opacity: 0;
+  }
+  /* Overlay that appears when the drawer opens */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(27, 27, 27, 0.5); 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease-in-out;
+    z-index: 10;
+     
+  }
+  
+  .overlayActive {
+    opacity: 1;
+    visibility: visible;
+    /* overflow-y: scroll; */
+    
+  }
+  
+  /* Background content dimmed */
+  .contentDimmed {
+    opacity: 0.2; 
+    transition: opacity 0.7s ease-in-out;
+  }
+  .DropdownMenuSecondSmall {
+    display: none;
+    position: absolute;
+    top: calc(70% + 10px) ;
+    left: 0;
+    width: 100%;
+    background-color: #f0c040;
+    /* color: #fff; */
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #666;
+    z-index: 1000;
+    text-align: center;
+    padding: 8px 0;
+    font-weight: 600;
+    color: #666;
+  }
+  .show2{
+    display: block;
+  }
+  /* Styling for the Top Recommendation page */
+  .PageSelection{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #222;
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .heading{
+    color: #222;
+    
+  }
+  .tabSelected{
+    text-decoration: underline;
+    color: #f0c040;
+  }
+  /*/Styling for Filter Div */
+  .FilterDiv{
+    width: 20%;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    border-radius: 10px;
+    border: 2px solid #d9d9d9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .FilterProfiles{
+    padding: 10px;
+    border-bottom: 2px solid #d9d9d9;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .FilterProfilesHeading{
+  font-size: 15px;
+  }
+  .BasicDetailsMainDiv,.ProfessionalDetailsMainDiv{
+    width: 100%;
+    padding-left: 10px;
+    border-bottom: 2px solid #d9d9d9;
+   
+  }
+  .BasicDetailsHead,.ProfessionalDetailsHead{
+    font-size: 13px;
+    padding: 10px 0 10px 10px;
+  }
+  .BasicDetailsDiv,.ProfessionalDetailsDiv{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  
+  
+  }
+  .bdSelect,.pdSelect{
+    width: 90%;
+    padding: 5px;
+    margin: auto;
+    border: 2px solid #d9d9d9;
+    border-radius: 6px;
+  }
+  .bdSelect:last-child,.pdSelect:last-child{
+    margin-bottom: 20px;
+  }
+  .textBox{
+    padding-left: 5px;
+  }
+  .LocationDetailsMainDiv{
+    display: flex;
+    justify-content: space-between;
+  padding: 10px 0 10px 0;
+  
+  }
+  .penIconDiv{
+    padding:10px 5px 0 0;
+  
+  }
+  .textBoxHead{
+    font-size: 13px;
+    padding: 5px 0;
+    
+  }
+  .textBoxPara,.textBoxSubPara{
+    font-size: 11px;
+    font-weight: 600;
+    color: #666;
+  }
+  .FilterDivButtonsMain{
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d9d9d9;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    justify-content: space-between;
+  }
+  .FilterDivButtonOne{
+    padding:5px 20px;
+    font-weight: 700;
+    color: #666;
+    background: transparent;
+    border-style: none;
+    cursor: pointer;
+  
+  
+  }
+  .FilterDivButtonOne:hover{
+    color: #f0c040;
+  }
+  /* @media (min-width:1240px) {
+    .trContentDisplay{
+      justify-content: space-evenly;
+    } 
+    .preferenceContent{
+      justify-content: space-evenly;
+    }
+    
+  }  */
+  @media (max-width: 1048px) {
+    .SubContainer {
+      margin: 50px;
+    }
+    .Container {
+      width: 100%;
+      /* border: 2px solid red; */
+    }
+    .ProfileDiv,.FilterDiv {
+      width: 25%;
+      right: 5px;
+    }
+    .LinkIcon {
+      gap: 0;
+      font-size: 12px;
+    }
+    .BasicDetailsMainDiv,.ProfessionalDetailsMainDiv{
+      padding-left: 2px;
+    }
+    .FilterIcon{
+      display: none;
+    }
+   
+  }
+  
+  @media (max-width: 802px) {
+  
+    .trContentDisplay{
+      grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+      gap: 10px;
+  
+  
+    }
+    /* .trUserName,.trUserDetail{
+      font-weight: 800;
+    } */
+    .ProfileDiv,.FilterDiv {
+      display: none;
+    }
+    .Hamburger,.FilterHam {
+      display: flex;
+      top: 5px;
+    }
+    .Container {
+      width: 100%;
+    }
+    .SubContainer {
+      margin: 10px;
+    }
+    .ExploreMatrimonyDiv{
+      width: 100%;
+  }
+  .FilterProfiles{
+    background-color: #f0c040;
+  }
+  .FilterIcon{
+    display: block;
+  }
+  .FilterDivButtonsMain{
+    position: absolute;
+    bottom: 10px;
+    background-color: #f0c040;
+    width: 90%;
+    /* margin-right: 10px; */
+  }
+  .FilterDivButtonOne:hover{
+    color: #fff;
+  }
+  }
+  @media (max-width:503px) {
+    .trContentDisplay{
+      place-items: center;
+    }
+    .TrHead{
+      text-align: center;
+    }
+    .SubContainer{
+      margin: 10px;
+    }
+    .Hamburger {
+      top: 10px;
+      right: -28px;
+      z-index: 1000;
+      padding: 2px;
+      gap: 2px;
+      width:70px ;
+      /* background: #000; */
+    }
+    .FilterHam{
+      top: 10px;
+      right: -40px;
+      z-index: 1000;
+      padding: 2px;
+      gap: 2px;
+      width:70px ;
+    }
+  
+    .ham1,.ham3{
+      width: 15px;
+    }
+    .ham3{
+      left: 10px;
+    }
+    .ham2{
+      width: 25px;
+    }
+    .open2{
+      display: none;
+    }
+    .open1,.open3{
+      left: 10px;
+      top: 10px;
+      width:30px;
+      /* padding: 10px; */
+    }
+  .drawer{
+  width: 90%;
+  /* padding: 10px; */
+  }
+  .ExploreContentIcons{
+    width: 95%;
+  }
+  
+  }

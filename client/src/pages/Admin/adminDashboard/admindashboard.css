@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.admin-dashboard {
+    width: 100%;
+    overflow: hidden;
+}
+
+.admin-dashboard .container-main {
+    width: 90%;
+    margin: auto;
+    background-color: #EBF3F5;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+.admin-dashboard .container-main .nav {
+    height: 100vh;
+    padding-top: 50px;
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid black;
+    
+}
+
+.admin-dashboard .container-main .contents {
+    width: 80%;
+    padding-top: 50px;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.admin-dashboard .container-main .contents::-webkit-scrollbar {
+    display: none;
+}
+
+.admin-dashboard .container-main .contents {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.admin-dashboard .button-container{
+    width: max-content;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    gap: 30px;
+    color: white;
+}
+.admin-dashboard .button-container .profile-verification-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F8CB58;
+    border-radius: 10px;
+    padding: 20px;
+    width: 50%;
+    gap: 10px;
+    cursor: pointer;
+}
+.admin-dashboard .dashborad-main .heading h1{
+    font-weight: 100;
+}
+.admin-dashboard  .button-container .icon-container img{
+    height:25px;
+    width: 25px;
+    object-fit: cover;
+}
+.admin-dashboard  .button-container .text-containers{
+    margin: 0;
+}
+
+.admin-dashboard .contents .second-part{
+    margin-top: 80px;
+}
+.admin-dashboard .contents .heading h1{
+    font-weight: 200;
+}
+.admin-dashboard .contents .profiles-container{
+    width: 100%;
+    margin-top: 30px;
+}
+.admin-dashboard .contents .profiles-container .main-container-profiles{
+    width: 90%;
+}
+.admin-dashboard .contents .profiles-container .main-container-profiles .profiles{
+    width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    padding: 30px 0px;
+    border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+.admin-dashboard .contents .profiles-container .main-container-profiles .profiles{
+    color: #F8CB58;
+}
+.admin-dashboard .contents .profiles-container .main-container-profiles .profiles .custom-link{
+    text-decoration: none;
+    color: #F8CB58;
+}
+.admin-dashboard  .see-all-link{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    padding-bottom: 20px;
+}
+.admin-dashboard  .see-all-link .custom-link{
+    text-decoration: none;
+    color: #F8CB58;
+
+}
+
+
+@media(max-width:900px){
+    .admin-dashboard .contents .profiles-container .main-container-profiles{
+    width: 100%;
+    padding-right: 10px;
+    
+}
+.admin-dashboard  .see-all-link{
+    width: 100%;
+}
+.admin-dashboard .container-main {
+    gap: 10px;
+}
+
+}
+@media(max-width:660px){
+    .admin-dashboard .container-main .nav {
+        height: max-content;
+        padding: 0;
+        overflow: hidden;
+        border: none;   
+    }
+.admin-dashboard .container-main {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+}
+.admin-dashboard .button-container{
+    flex-direction: column;
+}
+.contents .profiles-container .main-container-profiles .profiles{
+    flex-direction: column;
+
+}
+.admin-dashboard .button-container .profile-verification-container {
+    width: 100%;
+}
+.admin-dashboard .button-container {
+    width: 100%;
+}
+.admin-dashboard .heading h1{
+    text-align: center;
+}
+.contents .profiles-container .main-container-profiles .profiles div{
+    padding-bottom: 20px;
+}
+}
+@media (max-width:650px) {
+    .contents .profiles-container .main-container-profiles .profiles div     {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+}

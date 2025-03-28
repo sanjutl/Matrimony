@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.report-container{
+    width: 100%;
+    overflow: hidden;
+}
+.report-container .container-main {
+    width: 90%;
+    margin: auto;
+    background-color: #EBF3F5;
+    margin-top: 50px;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+
+}
+.report-container .container-main .nav {
+    height: 100vh;
+    padding-top: 50px;
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid black;
+    
+}
+
+.report-container .container-main .contents {
+    width: 80%;
+    padding-top: 50px;
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.report-container .container-main .contents::-webkit-scrollbar {
+    display: none;
+}
+
+.report-container .container-main .contents {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.report-container .container-main .contents {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.report-container .box-contents{
+    width: 95%;
+    background-color: white;
+    padding: 50px;
+    margin-top: 50px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+.report-container .box-contents .second-part{
+    width: 60%;
+}
+.report-container .box-contents .second-part .sub-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.report-container .box-contents .second-part .sub-container .description{
+    margin-top: 10px;
+}
+.report-container .box-contents .second-part .sub-container .description p{
+    font-size: 14px;
+}
+.report-container .box-contents .third-part{
+    width: 80%;
+    margin-top: 50px;
+}
+.report-container .box-contents .third-part .description{
+    margin-top: 14px;
+}
+.report-container .box-contents .third-part .description p{
+    font-size: 14px;
+}
+.report-container .box-contents .fourth-part{
+    width: 80%;
+    margin-top: 50px;
+}
+.report-container .box-contents .fourth-part .description{
+    margin-top: 14px;
+}
+.report-container .box-contents .fourth-part .description p{
+    font-size: 16px;
+}
+@media (max-width:1100px) {
+    .report-container .box-contents {
+        margin-right: 0;
+        padding-right: 0;
+    }
+}
+@media (max-width:900px) {
+    .report-container .box-contents {
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .report-container .box-contents .second-part {
+        width: 80%;
+    }
+    .report-container .box-contents .third-part {
+        width: 90%;
+    }
+    .report-container .container-main {
+        gap: 10px;
+    }
+}
+@media(max-width:768px){
+    .report-container .box-contents {
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 20px;
+    }
+    .report-container .container-main {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    .report-container .box-contents .second-part .sub-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+@media(max-width:600px){
+    .report-container .box-contents .third-part {
+        width: 98%;
+    }
+}

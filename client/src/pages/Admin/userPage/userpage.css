@@ -1,0 +1,16 @@
+.user-page-main{
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}   
+.user-page-main h1{
+    padding-bottom: 30px;
+}
+.pageination-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}

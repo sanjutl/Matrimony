@@ -1,0 +1,147 @@
+.Prof-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    gap: 20px;
+  }
+  
+  .Prof-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .icon-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 8px;
+  }
+  
+  .icon-button span {
+    font-size: 24px; /* Icon size */
+  }
+  
+  .matches-text {
+    font-size: 10px;
+    font-weight: 100;
+  }
+  .matches-text h6{
+    font-size: 12px;
+  }
+  .content {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .image-upload-icon {
+    position: relative;
+  }
+  
+  .icon-upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; 
+    color: #000;
+    cursor: pointer;
+  }
+  
+  .upload-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0; 
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  /* Divider Line */
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc; /* Light gray color */
+    margin: 10px 0; /* Space between the header and content */
+  }
+  
+  .btn {
+    padding: 5px 15px;
+    border-radius: 4px;
+    border: 1px solid yellow;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .btn.outlined {
+    background: transparent;
+    border: 2px solid yellow;
+    color: black;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+  }
+  
+  .btn.outlined:hover {
+    background: yellow;
+    color: black;
+  }
+  /* General Styles (Already Defined) */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .Prof-header {
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      padding: 10px;
+    }
+  
+    .Prof-header-left {
+       /* Stack icons vertically */
+      gap: 10px;
+      align-items: center;
+    }
+  
+    .icon-button {
+      font-size: 20px; /* Slightly smaller icons for narrow screens */
+    }
+  
+    .matches-text {
+      font-size: 8px; /* Reduce text size */
+      text-align: center; /* Center align text below icons */
+    }
+  
+    .image-upload-icon {
+      margin-top: 10px; /* Add spacing for better stacking */
+    }
+  
+    .btn {
+      width: 50%; /* Make buttons full-width on small screens */
+      margin: 0 auto; /* Center buttons */
+    }
+  }
+  @media (max-width: 480px) {
+    .Prof-header {
+      padding: 5px;
+    }
+  
+    .icon-button span {
+      font-size: 18px; /* Further reduce icon size */
+    }
+  
+    .matches-text {
+      font-size: 7px; /* Reduce text size further */
+    }
+  
+    .btn {
+      width: 50%; /* Buttons take full width */
+      font-size: 14px; /* Adjust font size */
+      border-radius: 8px;
+    }
+  
+    .divider {
+      margin: 5px 0; /* Reduce vertical spacing for smaller screens */
+    }
+  }
+  

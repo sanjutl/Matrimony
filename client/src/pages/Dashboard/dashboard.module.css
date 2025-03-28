@@ -1,0 +1,1514 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.mainContainer {
+  width: 100%;
+  /* margin-left: 3rem; */
+  position: relative;
+  background-image: url(../../assets/bg-pattern.jpg);
+}
+
+.SubContainer {
+  margin-left: 5rem;
+  position: relative;
+  margin-bottom: 8rem;
+  min-height: 700px;
+
+}
+.Container {
+  width: 75%;
+  /* border: 2px solid #666; */
+  min-height: max-content;
+}
+.OuterBox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 10px;
+  /* padding-top: 5rem; */
+}
+.trHeading{
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all ease 1s;
+}
+.trHeading h2{
+  font-size: 34px;
+}
+.adContainer{
+  width: 20%;
+  position: absolute;
+  background-color: red;
+  bottom: 0px;
+  right: 30px;
+  top:800px;
+  border-radius: 20px;
+}
+.trHeading h4{
+  font-size: 18px;
+}
+.SmallBox {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+}
+.BigBox {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 80px;
+  border-radius: 10px;
+}
+.ProfileDiv {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #d9d9d9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+.ProfileCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid #d0e4f5; */
+  border-radius: 12px;
+  padding: 20px;
+
+  /* margin-bottom: 20px; */
+}
+
+.ProfileImage {
+  background-color: #f0c040;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ProfileImage img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.ProfileDetails {
+  text-align: center;
+  color: #333;
+}
+
+.Greeting {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.UserName {
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.MemberId {
+  font-size: 16px;
+  color: #666;
+}
+
+.MembershipStatus {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.UpgradeButton {
+  background-color: transparent;
+  color: #666;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+}
+.ProfileCompletion a{
+  font-size: 16px;
+  transition: all ease 0.5s;
+  
+}
+.ProfileCompletion a:hover{
+  color: #f0c040;
+}
+.UpgradeButton:hover {
+  background-color: #f0c040;
+  color: #ffff;
+}
+.ProfileCompletion {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  border-top: 2px solid #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+
+  margin-top: 15px;
+}
+
+.ProfileCompletion p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.ProfileCompletion button {
+  background-color: transparent;
+  color: #333;
+  padding: 8px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.ProfileCompletion button:hover {
+  background-color: #f0c040;
+  color: white;
+  border-color: #f0c040;
+}
+.LinkIcon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 0 5px 0;
+}
+.link {
+  /* border: 2px solid #666; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 16px;
+  /* padding: 5px; */
+  /* gap: 10px; */
+}
+.link a {
+  text-decoration: none;
+  color: #333;
+  transition: all ease 0.5s;
+}
+.link a:hover{
+  color: #f0c040;
+}
+.Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Icon:hover {
+  color: #f0c040;
+}
+
+.SettingsMain {
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+}
+.Dropdown {
+  width: 100%;
+  /* padding: 5px; */
+  font-size: 13px;
+  color: #333;
+  /* border: 1px solid #ccc; */
+  border-style: none;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: left;
+}
+
+.Dropdown:focus {
+  outline: none;
+  border-color: #f0c040;
+  font-size: 12px;
+  color: #333;
+}
+/*
+  .Dropdown:hover {
+    color: #f0c040;
+  } */
+.TopRecommendation {
+  /* border: 2px solid #666; */
+  position: relative;
+}
+.SeeAll {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  cursor: pointer;
+  
+}
+
+.SeeAll a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+.SpanArrow {
+  color: #f0c040;
+  font-weight: 700;
+}
+.trContentDisplay {
+  display: grid;
+  gap: 15px;
+  margin: 20px 0;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+}
+/* .trContentDisplay {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 10px; 
+  width: 100%; 
+  margin: 20px 0 20px 0;
+ 
+} */
+.TrContent {
+  color: #535353;
+  padding-top: 10px;
+}
+.seeAllButton {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  transition: all ease 1s;
+  opacity: 0;
+  transform: translateX(-300px);
+}
+.seeAllButton:hover {
+  background-color: #f0c040;
+  color: white;
+}
+.seeAllLink {
+  transition: all ease 1s;
+}
+.seeAllButton:hover .seeAllLink {
+  color: white;
+}
+
+.trCard {
+  border-radius: 10px;
+  width: 236px;
+  height: 398px;
+  background-color: #f0c040;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: rgba(194, 133, 133, 0.6) 0px 4px 12px;
+  backdrop-filter: blur(3.4px);
+  transition: all ease 1s;
+  transform: scale(1);
+  transform: translateY(100px);
+  opacity: 0;
+}
+.trCard:hover {
+  transform: scale(1.03);
+}
+.trCardImg {
+  width: 100%;
+  height: 330px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.trCardDetails {
+  width: 100%;
+  height: 68px;
+  background-color: #f0c040;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.trUserName {
+  color: #fff;
+  font-weight: 600;
+  padding-left: 10px;
+  font-size: 15px;
+}
+.trUserDetails {
+  color: #fff;
+  font-weight: 700;
+  padding-left: 10px;
+}
+/* .trCardDetailSub{
+     padding: 10px 0 0 10px; 
+    
+} */
+.LikeButton {
+  width: 30px;
+  height: 30px;
+  /* padding: 5px 0 0 10px; */
+
+  /* background-color: #d9d9d9; */
+}
+.likedHeartBefore {
+  color: #fff;
+  transition: transform 0.5s ease-in-out, color ease-in-out;
+  /* color: transparent; */
+  /* border: 1px solid #fff; */
+}
+.likedHeart {
+  transform: scale(1.3);
+}
+
+.PreferenceDiv {
+  width: 100%;
+  /* height: ; */
+  /* border: 2px solid #666; */
+  margin: 20px 0 20px 0;
+}
+.preferenceContent {
+  width: 95%;
+  /* height: 160px; */
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(269px, 1fr));
+  gap: 10px;
+  margin: 20px 0 30px 0;
+}
+.preferenceContentCard {
+  width: 268px;
+  height: 160px;
+  background-image: url("../../assets/34afa5c3459e1eb85a56483d57ab6264.jpeg");
+  background-size: 268px 160px;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  flex: 0 270 1;
+  cursor: pointer;
+}
+
+.preferenceContentCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    transparent,
+    rgba(0, 0, 0, 0.5)
+  );
+  pointer-events: none;
+}
+
+.PreferenceNameDiv {
+  position: absolute;
+  /* border: 2px solid #666; */
+  bottom: 10px;
+  left: 25px;
+}
+.PreferenceName {
+  color: #fff;
+}
+.ExploreMatrimonyDiv {
+  /* border: 2px solid #666; */
+  width: 95%;
+  /* margin: 20px 0 20px 0; */
+  margin-top: 30px;
+}
+.ExploreContent {
+  margin-top: 30px;
+  /* border: 2px solid #222; */
+}
+.ExploreContentIcons {
+  display: flex;
+  width: 100%;
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  justify-content: space-between;
+  gap: 300px;
+  padding: 50px;
+}
+.ExploreIcons {
+  width: 100px;
+  /* border: 2px solid black; */
+}
+.ExplorePara {
+  color: #666;
+  font-size: 10px;
+  text-align: start;
+}
+.Dropdown option {
+  border-style: none;
+}
+.DropdownSecond {
+  width: 100%;
+  /* padding: 5px; */
+  font-size: 16px;
+  color: #333;
+  /* border: 1px solid #ccc; */
+  border-style: none;
+  border-radius: 4px;
+  /* background-color: #fff; */
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: all ease 0.5s;
+}
+.DropdownSecond:hover{
+  color: #f0c040;
+}
+.DropdownSecond::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+.DropdownMenuSecond {
+  display: none;
+  position: absolute;
+  top: calc(70% + 5px);
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #666;
+  z-index: 100;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 600;
+  color: #666;
+}
+.show {
+  display: block;
+}
+.DropdownItemSecond {
+  padding: 5px;
+  border-style: none;
+}
+.HelpButton {
+  cursor: pointer;
+  width: 100%;
+  transition: all ease 0.5s;
+}
+.HelpButton:hover{
+  color: #f0c040;
+}
+/* Ham burger */
+.HamburgerMain {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.Hamburger,
+.FilterHam {
+  width: 70px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  top: 30px;
+  right: -10px;
+
+  gap: 5px;
+
+  display: none;
+}
+
+.ham1,
+.ham2,
+.ham3 {
+  /* width: 30px; */
+  height: 3px;
+  background-color: #f0c040;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+.ham1 {
+  width: 30px;
+  position: relative;
+}
+.ham2 {
+  width: 50px;
+}
+.ham3 {
+  position: relative;
+  width: 30px;
+  left: 20px;
+}
+
+.open1 {
+  transform: rotate(45deg);
+  position: absolute;
+  top: 20px;
+  width: 30px;
+  left: 0;
+}
+
+.open2 {
+  opacity: 0;
+}
+
+.open3 {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 20px;
+  width: 30px;
+  left: 0;
+}
+/* drawer */
+.drawer {
+  position: fixed;
+  top: 40px;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  /* background-color: #f0c040; */
+  box-shadow: -2px 0 5px 2px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.7s ease-in-out, opacity 0.6s ease-in-out;
+  opacity: 0;
+  overflow: hidden;
+  display: none;
+  border-top-right-radius: 10px;
+  overflow-y:scroll ;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.drawerOpen {
+  left: 0;
+  top: 0;
+  display: block;
+  opacity: 1;
+  z-index: 20;
+  background-color: #f0c040;
+}
+
+.drawerClosed {
+  left: -300px;
+  opacity: 0;
+}
+/* Overlay that appears when the drawer opens */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(27, 27, 27, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease-in-out;
+  z-index: 10;
+}
+
+.overlayActive {
+  opacity: 1;
+  visibility: visible;
+  /* overflow-y: scroll; */
+}
+
+/* Background content dimmed */
+.contentDimmed {
+  opacity: 0.2;
+  transition: opacity 0.7s ease-in-out;
+  pointer-events: none;
+  background-attachment: fixed;
+}
+.DropdownMenuSecondSmall {
+  display: none;
+  position: absolute;
+  top: calc(70% + 10px);
+  left: 0;
+  width: 100%;
+  background-color: #f0c040;
+  /* color: #fff; */
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #666;
+  z-index: 1000;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 600;
+  color: #666;
+}
+.show2 {
+  display: block;
+}
+/* Styling for the Top Recommendation page */
+.PageSelection {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #222;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+.heading {
+  color: #222;
+  font-size: 24px;
+}
+.animateIn{
+  opacity: 1;
+  transform: translateY(0px);
+  transform: translateX(0px);
+
+}
+.tabSelected {
+  text-decoration: underline;
+  color: #f0c040;
+}
+/*/Styling for Filter Div */
+.FilterDiv {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  border-radius: 10px;
+  border: 2px solid #d9d9d9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid black; */
+  border-radius: 20px;
+}
+.FilterDivMain {
+  width: 20%;
+  position: absolute;
+  top: 140px;
+  right: 30px;
+  bottom: 0;
+  min-height: max-content;
+}
+.FilterProfiles {
+  padding: 10px;
+  border-bottom: 2px solid #d9d9d9;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0c040;
+  color: white;
+}
+.FilterProfilesHeading {
+  font-size: 17px;
+}
+.BasicDetailsMainDiv,
+.ProfessionalDetailsMainDiv {
+  width: 100%;
+  padding-left: 10px;
+  border-bottom: 2px solid #d9d9d9;
+}
+.BasicDetailsHead,
+.ProfessionalDetailsHead {
+  font-size: 13px;
+  padding: 10px 0 10px 10px;
+}
+.BasicDetailsDiv,
+.ProfessionalDetailsDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.bdSelect,
+.pdSelect {
+  width: 90%;
+  padding: 5px;
+  margin: auto;
+  border: 2px solid #d9d9d9;
+  border-radius: 6px;
+}
+.bdSelect:last-child,
+.pdSelect:last-child {
+  margin-bottom: 20px;
+}
+.textBox {
+  padding-left: 5px;
+}
+.LocationDetailsMainDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 10px 0;
+}
+.penIconDiv {
+  padding: 10px 5px 0 0;
+}
+.textBoxHead {
+  font-size: 13px;
+  padding: 5px 0;
+}
+.textBoxPara,
+.textBoxSubPara {
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+}
+.FilterDivButtonsMain {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #d9d9d9;
+  border-radius: 20px;
+  justify-content: space-between;
+  background-color: #f0c040;
+}
+.FilterDivButtonOne {
+  padding: 5px 20px;
+  font-weight: 700;
+  color: white;
+  background: transparent;
+  border-style: none;
+  cursor: pointer;
+  transition: all ease 1s;
+  font-size: 17px;
+}
+.FilterDivButtonOne:hover {
+  color: black;
+}
+/* @media (min-width:1240px) {
+  .trContentDisplay{
+    justify-content: space-evenly;
+  } 
+  .preferenceContent{
+    justify-content: space-evenly;
+  }
+  
+}  */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for better focus */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px); /* Soft blur effect */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.15); /* Light glassmorphism */
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+  backdrop-filter: blur(15px); /* Stronger blur effect for depth */
+  box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideIn 0.4s ease-in-out;
+  color: #fff;
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f8f9fa;
+}
+
+.modal img {
+  object-fit: cover;
+  border-radius: 15px;
+  width: 250px;
+  height: 400px;
+  background-color: #f0c040;
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal img:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0px 8px 30px rgba(255, 255, 255, 0.3);
+}
+
+.modalButtons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.modalButtons button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalButtons button:first-child {
+  background: linear-gradient(135deg, #38ef7d, #11998e);
+  color: white;
+  box-shadow: 0px 4px 10px rgba(56, 239, 125, 0.4);
+}
+
+.modalButtons button:first-child:hover {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+  transform: scale(1.05);
+}
+
+.modalButtons button:last-child {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  box-shadow: 0px 4px 10px rgba(255, 65, 108, 0.4);
+}
+
+.modalButtons button:last-child:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: scale(1.05);
+}
+.AdOffers {
+  height: max-content;
+  margin-top: 50px;
+  background:none;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(186, 218, 8, 0.911);
+  animation: fadeIn 0.8s ease-in-out;
+  margin-bottom: 30px;
+}
+
+/* Headings */
+.AdOffersHead {
+  color: #ff2a0068; 
+  font-family:Cookie;
+  font-size: 48px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.AdOffersMain {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.AdOffersPrice {
+  font-size: 32px;
+  color: #e63946;
+  font-weight: bold;
+  animation: bounce 1.5s infinite;
+}
+
+/* Description */
+.AdOffersPara {
+  font-size: 26px;
+  color: #555;
+  margin-top: 8px;
+}
+
+
+.paymentButtonAds {
+  background: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.paymentButtonAds:hover {
+  background: #e64a19;
+  transform: scale(1.05);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Box */
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: modalPop 0.3s ease-in-out;
+}
+
+/* Modal Buttons */
+.modal button {
+  margin: 10px;
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal button:first-of-type {
+  background: #28a745;
+  color: white;
+}
+
+.modal button:first-of-type:hover {
+  background: #218838;
+}
+
+.modal button:last-of-type {
+  background: #d9534f;
+  color: white;
+}
+
+.modal button:last-of-type:hover {
+  background: #c9302c;
+}
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide-in effect */
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* pdfmodal */
+.PdfModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* Black transparent overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.PdfModalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.PdfPreview {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+.PdfModalActions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.PdfYesButton,
+.PdfNoButton {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.PdfYesButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.PdfYesButton:hover {
+  background-color: #218838;
+}
+
+.PdfNoButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.PdfNoButton:hover {
+  background-color: #c82333;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.sideBar {
+  width: 20%;
+  /* background: aliceblue; */
+  /* height:450px; */
+  position: absolute;
+  top: 80px;
+  right: 30px;
+  min-height: max-content;
+  height: 80%;
+  /* border: 3px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.Adsplacement {
+  width: 100%;
+  border-radius: 10px;
+  background: transparent;
+  /* background: radial-gradient(circle, rgba(240,192,64,1) 0%, rgba(102,101,99,1) 100%); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  overflow-y: hidden;
+  position: relative;
+  flex-shrink: 0;
+
+  /* margin-top: 5rem;
+   margin-bottom: auto; */
+  /* flex-grow: 1; */
+}
+.AdsCarousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+  background-image: url(../../assets/comingsoon.jpg);
+  background-size: cover;
+  background-position: bottom;
+  font-family:Cookie;
+  position: relative;
+  overflow: hidden;
+
+}
+.heart {
+  position: absolute;
+  top: -50px;
+  width: 60px;
+  height: 60px;
+  background-image: url(../../assets/heart.png); /* Replace with correct path */
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: fall 5s linear infinite;
+  opacity: 0;
+}
+.heart:nth-child(1) { left: 10%; animation-duration: 4s; }
+.heart:nth-child(2) { left: 25%; animation-duration: 5s; }
+.heart:nth-child(3) { left: 40%; animation-duration: 6s; }
+.heart:nth-child(4) { left: 60%; animation-duration: 4.5s; }
+.heart:nth-child(5) { left: 80%; animation-duration: 6.5s; }
+
+.AdplacementCard {
+  flex: 1 0 100%;
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  background:transparent;
+  /* backdrop-filter: blur(10px); */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 4px 8px rgba(255, 255, 255, 0.25),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  overflow: hidden;
+  position: relative;
+  font-family:Cookie;
+
+}
+
+.AdplacementCard.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 1s ease-in-out;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), 
+  inset 0 5px 10px rgba(255, 255, 255, 0.25), 
+  inset 0 -5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.AdImgDiv {
+  text-align: center;
+  font-family:Cookie;
+
+}
+.AdTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* default white color */
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  text-transform: uppercase;
+  font-family:Cookie;
+
+}
+
+.AdTitle h3 {
+  margin: 0;
+  color: inherit; 
+}
+
+.silverHeader {
+
+  color: #C0C0C0; 
+  font-family:Cookie;
+
+}
+
+.goldHeader {
+  
+  color: #FFD700; 
+  font-family:Cookie;
+
+}
+
+.platinumHeader {
+
+  color: #df11a1; 
+  font-family:Cookie;
+
+
+}
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.comingSoon{
+  font-size: 50px;
+  color: #f0c040;
+
+  font-family:Cookie;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+@keyframes pop {
+  0%, 100% {
+    transform: rotate(-15deg) scale(1);
+  }
+  50% {
+    transform: rotate(-15deg) scale(1.1);
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-100px)  rotateY(0deg) scale(0.6);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh)   rotateY(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw {
+  animation: draw 3s ease-in-out forwards;
+}
+
+.Adplacement2 {
+  width: 100%;
+  background-color: #f8cb08;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Enable scrolling if content exceeds */
+  margin-top: 1rem;
+}
+@media (max-width: 1048px) {
+  .SubContainer {
+    margin: 20px;
+  }
+  .Container {
+    width: 70%;
+    /* border: 2px solid red; */
+  }
+  .sideBar {
+    width: 27%;
+    right: 5px;
+  }
+  .FilterDiv {
+    width: 100%;
+    right: 5px;
+  }
+  .ProfileDiv {
+    width: 100%;
+    right: 5px;
+  }
+  .FilterDivMain {
+    width: 30%;
+    right: -20px;
+  }
+  .LinkIcon {
+    gap: 0;
+    font-size: 12px;
+  }
+  .BasicDetailsMainDiv,
+  .ProfessionalDetailsMainDiv {
+    padding-left: 2px;
+  }
+  .FilterIcon {
+    display: none;
+  }
+}
+
+@media (max-width: 802px) {
+  .trContentDisplay {
+    grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
+    gap: 10px;
+  }
+
+  /* .trUserName,.trUserDetail{
+    font-weight: 800;
+  } */
+  .ProfileDiv,
+  .FilterDiv,
+  .FilterDivMain,
+  .sideBar {
+    display: none;
+  }
+  .Hamburger {
+    right: -10px;
+  }
+  .ham1,
+  .ham2,
+  .ham3 {
+    height: 5px;
+  }
+  .open1,
+  .open2,
+  .open3 {
+    height: 5px;
+  }
+  .Hamburger,
+  .FilterHam {
+    display: flex;
+    top: 5px;
+  }
+  .Container {
+    width: 100%;
+  }
+  .SubContainer {
+    margin: 10px;
+  }
+  .ExploreMatrimonyDiv {
+    width: 100%;
+  }
+  .FilterProfiles {
+    background-color: #f0c040;
+  }
+  .FilterIcon {
+    display: block;
+  }
+  .FilterDivButtonsMain {
+    position: absolute;
+    bottom: 10px;
+    background-color: #f0c040;
+    width: 90%;
+    /* margin-right: 10px; */
+  }
+  .FilterDivButtonOne:hover {
+    color: #fff;
+  }
+  .drawer {
+    width: 70%;
+  }
+
+  .link {
+    gap: 20px;
+    font-size: 18px;
+  }
+  .LinkIcon {
+    padding: 10px;
+    gap: 20px;
+    /* font-size: 30px;  */
+  }
+  .DropdownSecond,
+  .HelpButton {
+    gap: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+}
+@media (max-width: 503px) {
+  .trContentDisplay {
+    place-items: center;
+    gap: 26px;
+  }
+  .trCard {
+    width: 90%;
+    height: 460px;
+  }
+  .trCardImg {
+    height: 390px;
+  }
+  .trUserName {
+    font-size: 20px;
+  }
+  .trUserDetails {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .LikeButton {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .SubContainer {
+    margin: 10px;
+  }
+  .Hamburger {
+    top: 16px;
+    right: -40px;
+    z-index: 1000;
+    padding: 2px;
+    gap: 2px;
+    width: 70px;
+    /* background: #000; */
+  }
+  .FilterHam {
+    top: 20px;
+    right: -28px;
+    z-index: 1000;
+    padding: 2px;
+    gap: 2px;
+    width: 70px;
+  }
+  .FilterIcon{
+    width: 25px;
+    height: 25px;
+  }
+
+  .ham1,
+  .ham3 {
+    width: 15px;
+    height: 4px;
+  }
+  .ham3 {
+    left: 10px;
+  }
+  .ham2 {
+    width: 25px;
+    height: 4px;
+  }
+  .open2 {
+    display: none;
+  }
+  .open1,
+  .open3 {
+    left: -5px;
+    top: 10px;
+    height: 5px;
+    width: 30px;
+    /* padding: 10px; */
+  }
+  .drawer {
+    width: 90%;
+    /* padding: 10px; */
+  }
+  .ExploreContentIcons {
+    width: 95%;
+  }
+  .trHeading {
+    /* border: 2px solid black; */
+    text-align: center;
+  }
+  .PdfModalContent {
+    width: 60%;
+  }
+  .PageSelection{
+    flex-direction: column  ;
+  }
+}

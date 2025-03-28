@@ -1,0 +1,33 @@
+.getfullprofile-main{
+    padding: 50px;
+    width: 100%;
+    text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}   
+.getfullprofile-main h1{
+    padding-bottom: 30px;
+}
+.pagination-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.profile-content div {
+    overflow: hidden;
+}
+@media(max-width:660px){
+    .report-container .container-main {
+        margin: 0;
+        width: 100%;
+    }
+    .report-container .container-main .contents {
+        width: 100%;
+    }
+    .main-container-profiles {
+        width: 100%;
+    }
+}

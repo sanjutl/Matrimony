@@ -1,0 +1,91 @@
+.sidebar-container {
+box-sizing: border-box;
+height: 100vh;
+
+  }
+  
+  .sidebar-container .sidebar {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    
+  }
+  
+  .sidebar-container .sidebar.pinned {
+    width: 200px;
+  }
+  .sidebar-container .pin-pin{
+    display: none;
+  }
+  .sidebar-container .sidebar.collapsed {
+    width: 60px;
+  }
+  
+  .sidebar-container .sidebar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar-container .sidebar.collapsed .logo img {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar-container .pin-button {
+    margin: 10px;
+    align-self: flex-end;
+    background-color: #F8CB58;
+    color: #ebf3f5;
+  }
+  
+  .sidebar-container .menu {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #ebf3f5;
+  }
+  
+  .sidebar-container .menu .ant-menu-item {
+    justify-content: center;
+  }
+  
+  .sidebar-container .sidebar.pinned .menu .ant-menu-item {
+    justify-content: start;
+  }
+  
+  /* Menu Item Text Hidden in Collapsed Mode */
+  .sidebar-container .menu .ant-menu-item {
+    transition: padding 0.3s ease-in-out;
+  }
+  
+  .sidebar-container .sidebar.collapsed .ant-menu-item > span {
+    display: inline-flex;
+  }
+  
+  .sidebar-container .menu .ant-menu-item.ant-menu-item-selected {
+    background-color: #F8CB58 !important; /* Yellow highlight */
+    color: #000 !important; /* Ensure text color stays black */
+}
+.sidebar-container .menu .ant-menu-item-selected .ant-menu-title-content {
+  color: #000 !important; /* Make sure text stays visible */
+}
+  .sidebar-container .menu .ant-menu-item:hover {
+    background-color: #d6e7ea;
+  }
+
+  
+  .sidebar-container .menu .ant-tooltip {
+    z-index: 9999;
+  }
+  
+  .sidebar-container .menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+    background-color: #F8CB58 !important;
+    color: #000 !important;
+} 
+  
+  @media (max-width:760px){
+    .sidebar-container .pin-pin{
+        display: block;
+      }
+  }

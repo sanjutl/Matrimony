@@ -1,0 +1,80 @@
+/* PaymentSuccess.css */
+.payment-success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7fafc;
+    padding: 20px;
+}
+
+.payment-success-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.payment-success-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 16px;
+}
+
+.payment-success-message {
+    font-size: 16px;
+    color: #4a5568;
+    margin-bottom: 24px;
+}
+
+.payment-details {
+    background: #edf2f7;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.payment-details p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #4a5568;
+}
+.buttonClass{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.continue-shopping-button2 {
+    background-color: black;
+    color: #f7fafc;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.continue-shopping-button {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.continue-shopping-button:hover {
+    background-color: #3182ce;
+}
+.continue-shopping-button2:hover{
+    background-color: #f7fafc;
+    color: black;
+}

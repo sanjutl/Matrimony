@@ -1,0 +1,444 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main Container */
+  .mainContainer {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../../assets/loginImage.jpg'); /* Replace with actual path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .container {
+    width: 75%;
+    /* height: 500px; */
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    /* height: 400px;
+    overflow: hidden; */
+    
+    background-image: url(../../assets/bg-pattern.jpg);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  
+  
+  .progressDiv {
+    /* text-align: right; */
+    /* margin-bottom: 10px; */
+    /* border: 2px solid #ffc107 ; */
+    width: 75%;
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+    max-width: 800px;
+    align-items: end;
+
+  }
+  
+  .progressHeading {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+  
+ 
+  }
+  .progressHeading2{
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    margin-bottom: -10px;
+    /* padding-bottom:10px ; */
+  }
+  
+  /* Main Content */
+  .contentDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content:center ;
+  }
+  
+  /* Image Section */
+  .imageDisplayDiv {
+    /* flex: 1; */
+    width: 30%;
+    display: flex;
+    overflow: hidden;
+    /* background-image: url('../../assets/free-photo-of-couple-in-green-grass-field.jpeg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+    position: relative;
+  }
+  
+  .image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    /* object-fit: contain; */
+  }
+/* Pulsating Div */
+.pulsatingDiv {
+  position: absolute;
+  bottom: 0;
+  /* left:10px; */
+  width: 100%; /* Matches the width of the image */
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Heart Div for Pulsation */
+.heartDiv {
+  /* animation: pulsate 1.5s ease-in-out infinite;  */
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Heart Image */
+.image2 {
+  width: 100%; /* Fully adapts to the parent container */
+  height: auto;
+  transform: rotateY(180deg);
+}
+
+/* Pulsation Animation */
+@keyframes pulsate {
+  0% {
+    transform: scale(1); 
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15); 
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  
+  /* Form Section */
+  .formContainer {
+    flex: 1;
+    padding: 20px;
+    /* height: 400px;
+    overflow-y: scroll; */
+
+  }
+  
+  .formHeading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  } */
+
+  .fieldGroup {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* flex-direction: column; */
+    padding: 10px;
+    
+    column-gap: 10px;
+    /* position: relative; */
+  }
+  .labelGroup{
+    width: 32%;
+    color: #666;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    
+    /* border: 2px solid #666; */
+  }
+ 
+  .starHead{
+    color: red;
+    font-weight: 600;
+    /* display: none; */
+    padding-left: 5px;
+  }
+  .mandatoryField{
+    color: red;
+    font-size: 14px;
+    /* display: none; */
+  }
+  .inputGroup{
+    width: 46%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid #333; */
+
+
+  }
+  .inputGroupButtons{
+    width:70%;
+    margin-left: 5px;
+    /* border: 2px solid #333; */
+
+    
+  }
+  .helperTextDiv{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+  }
+  
+  .label {
+    font-size: 14px;
+    
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-style: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+
+  }
+  .input option,select{
+    color: #666;
+  }
+
+  
+  .helperText {
+    font-size: 12px;
+    color: #666;
+    /* margin-top: 5px; */
+ 
+  }
+  .optionalDiv{
+    /* position: relative;
+    top: 15px; */
+    width: 100px;
+    /* height: 20px; */
+    padding: 5px;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  .optionalDivText{
+    font-size: 13px;
+    margin: 0;
+    color: #666;
+  }
+  .optionButtonOuterDiv{
+    width: 100%;
+    display: flex;
+    /* justify-content:space-evenly; */
+       flex-wrap:wrap;
+     gap: 10px;
+ 
+    align-items: center;
+    /* margin: auto; */
+  }
+  .optionButtonOuterDiv3{
+    width: 100%;
+    display: flex;
+    /* justify-content:space-evenly;
+     */
+  
+    align-items: center;
+  }
+  .optionSingleButton{
+    padding: 5px 8px 5px 8px;
+    color: #666;
+    background: transparent;
+    /* border-style: none; */
+    border: 1px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+  }
+  /* .optionSingleButton:hover{
+    background-color: #f8cb58;
+    border-style: none;
+    color: #fff;
+  } */
+   .selected{
+
+    background-color: #f8cb58; /* Apply hover styles here */
+    border-style: none;
+    color: #fff;
+    box-shadow: 0px 1px 2px  0.8px #666;
+   }
+  .btnDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+    /* border:  2px solid black; */
+
+  }
+  .submitButton {
+    width: 60%;
+    background-color: #f8cb58;
+    color: #fff;
+    padding: 10px 20px;
+    /* margin: auto; */
+    border: none;
+    /* border: 2px solid white; */
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  /* formpage4 */
+  .textAreaDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .leftLabel, .rightLabel {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0 10px;
+  }
+  
+  .textArea {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  .submitButton:hover {
+    background-color: #e0a800;
+  }
+  
+  /* Footer */
+  .footer {
+    width: 75%;
+    /* border: 2px solid #ffff; */
+    text-align: right;
+    /* padding-right: 10px; */
+    /* margin-top: 20px; */
+    color: #ffff;
+    font-size: 14px;
+    max-width: 800px;
+  }
+  .errorMessage {
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 4px; /* Small gap like native validation */
+  }
+  
+  
+  
+  @media (max-width:1024px) {
+    .imageDisplayDiv{
+        display: none;
+    }
+    
+
+    @media (max-width:740px) {
+      
+      .container{
+        width: 80%;
+        /* overflow:hidden; */
+
+        
+        /* border: 2px solid #403f3f; */
+      }
+      /* .contentDiv{
+        overflow-y: scroll;
+      } */
+        .fieldGroup{
+            display: flex;
+            flex-direction: column;
+            /* height: 150px; */
+            /* overflow-y:hidden ; */
+            /* border: 2px solid blanchedalmond; */
+        }
+        .inputGroup,.helperTextDiv{
+            width: 100%;
+            size: 13px;
+            padding: 2px;
+            justify-content: flex-start;
+        }
+        .inputGroupButtons{
+            width: 100%;
+        }
+        .optionalDiv{
+          display: none;
+        }
+        .starHead{
+          display: block;
+        }
+        .labelGroup{
+            justify-content: flex-start;
+            color: #403f3f;
+            width: 100%;
+            size: 13px;
+            font-weight: 600;
+            
+        }
+       
+        .progressHeading{
+          font-size: 17px;
+        }
+        .progressHeading2{
+          font-size: 26px;
+          padding-bottom: 7px;
+        }
+        .optionButtonOuterDiv{
+          justify-content: flex-start;
+          /* gap: 5%; */
+
+        }
+        .footer{
+          font-size: 10px;
+        }
+        .mandatoryField{
+          display: block;
+        }
+        
+    }
+    
+  }

@@ -1,0 +1,579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .profile-view-main-container {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-bottom: 50px;
+  }
+  .profile-view-main-container .separator {
+    border: 1px solid #cfcfcf;
+    margin: 60px 0px 30px 60px;
+    
+  }
+  .all-match {
+    margin-left: 70px;
+  }
+  .profile-cards {
+    width: 85%;
+    display: flex;
+    margin-left: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    margin-top: 25px;
+  }
+  
+  .profile-cards .image-container {
+    width: 40%;
+    z-index: 100;
+    position: relative;
+    height: 330px;
+    background-color: white;
+  }
+  .profile-cards .image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .profile-cards .details-sections {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-left: 20px;
+    position: relative;
+  }
+  .profile-cards .details-sections div {
+    padding-top: 20px;
+  }
+  .profile-cards .profile-name-container .option {
+    height: 30px;
+    width: 30px;
+  }
+  .option-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .option {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 10;
+    width: 160px; /* Keep the width unchanged */
+    padding: 2px 5px; /* Reduced vertical padding */
+    border-radius: 6px;
+  }
+  
+  .option:hover .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  .profile-cards .profile-name-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+  }
+  .profile-cards .profile-name-container .option svg {
+    height: 30px;
+    width: 30px;
+    object-fit: cover;
+  }
+  .profile-cards .profile-age-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .profile-cards .profile-age-container .media {
+    display: flex;
+    gap: 10px;
+    padding-top: 0px;
+  }
+  .profile-cards .profile-age-container .media div {
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    margin-right: 10px;
+  }
+  .profile-cards .verify-container {
+    position: absolute;
+    right: -30px;
+    background-color: #e2e2e2;
+    padding: 30px 70px;
+    border-radius: 50px;
+    bottom: -25px;
+  }
+  .profile-cards .premium-container {
+    position: absolute;
+    left: -50px;
+    background-color: white;
+    padding: 20px 70px;
+    border-radius: 50px;
+    top: -20px;
+    color: #f8cb58;
+    border: 3px solid #f8cb58;
+    width: auto;
+    display: flex;
+    justify-content: end;
+    z-index: -10;
+  }
+  .profile-view-main-container .about-card {
+    width: 65%;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-left: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .profile-view-main-container .about-card .about-card-container {
+    width: 100%;
+    padding: 20px 30px;
+  }
+  .profile-view-main-container .about-similar {
+    width: 90%;
+    display: flex;
+    gap: 10px;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .about-user-container
+    h3 {
+    font-size: 20px;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .description-container {
+    padding-top: 20px;
+    width: 80%;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .basic-details-container {
+    margin-top: 70px;
+    width: 70%;
+    margin-bottom: 30px;
+  }
+  
+  .profile-view-main-container .basic-details-container .profiles-icon {
+    color: #ff9900;
+    margin-right: 15px;
+    font-size: 24px;
+  }
+  .profile-view-main-container .basic-details-container div {
+    padding-top: 10px;
+  }
+  .profile-view-main-container .basic-details-container .same {
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+  .profile-view-main-container .basic-details-container .same1 {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: start;
+  }
+  
+  .profile-view-main-container .basic-details-container .details-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container {
+    width: 100%;
+    margin: auto;
+    /* background-color: #e2e2e2; */
+    padding: 20px 10px;
+    border-radius: 20px;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .letter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .letter-container
+    .same {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .letter-container
+    hr {
+    height: 18px;
+    width: 3px;
+    background-color: black;
+    margin: 0px 20px;
+    border: none;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .letter-container
+    h3 {
+    padding-left: 10px;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .digit-container {
+    margin-top: 40px;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .digit-container
+    .digit-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-view-main-container
+    .about-card
+    .about-card-container
+    .verification-main-container
+    .digit-container
+    .digit-main
+    .call-now {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin-left: 20px;
+  }
+  .profile-view-main-container .about-card .about-pat {
+    margin-top: 60px;
+    width: 80%;
+    overflow: hidden;
+  }
+  .profile-view-main-container .about-card .about-pat .about-pat-main {
+    width: 100%;
+    overflow: hidden;
+  }
+  .profile-view-main-container .about-card .about-pat .about-pat-main .contents {
+    padding: 40px 0px 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .profile-view-main-container .about-card .profile-like-container {
+    width: 95%;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  .profile-view-main-container
+    .about-card
+    .profile-like-container
+    .profile-like-main {
+    width: 100%;
+    overflow: hidden;
+  }
+  .profile-view-main-container
+    .about-card
+    .profile-like-container
+    .profile-like-main
+    .list-all {
+    width: 100%;
+    display: flex;
+    padding-top: 20px;
+    justify-content: end;
+  }
+  .profile-view-main-container
+    .about-card
+    .profile-like-container
+    .profile-like-main
+    .list-all
+    .custom-link {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+  }
+  .profile-view-main-container .about-card .like-card-container {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .profile-view-main-container .about-card .like-card-container .like-card {
+    flex: 0 0 calc(49%);
+    display: flex;
+    background-color: #5e7165;
+    border-radius: 20px;
+    gap: 10px;
+  }
+  .profile-view-main-container .about-card .like-card-container .like-card div {
+    width: 50%;
+  }
+  .profile-view-main-container
+    .about-card
+    .like-card-container
+    .like-card
+    div
+    img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  
+  .profile-view-main-container
+    .about-card
+    .like-card-container
+    .description-container
+    div {
+    width: 100%;
+    padding-bottom: 20px;
+    color: white;
+  }
+  .profile-view-main-container
+    .about-card
+    .like-card-container
+    .description-container
+    div
+    button {
+    border: none;
+    background-color: transparent;
+    color: #f8cb58;
+    font-size: 20px;
+  }
+  .container-similar h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .profile-view-main-container .about-similar .similar-profile-container {
+    width: 35%;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
+    border-radius: 20px;
+    overflow: hidden;
+    height: max-content;
+    padding-bottom: 20px;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .main-similar-profile {
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card-container {
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card {
+    flex: 1;
+    display: flex;
+    background-color: #5e7165;
+    border-radius: 20px;
+    gap: 10px;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card
+    div {
+    width: 50%;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .description-container {
+    padding-top: 20px;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card-container
+    .like-card
+    div
+    img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card-container
+    .description-container
+    div {
+    width: 100%;
+    padding-bottom: 20px;
+    color: white;
+  }
+  .profile-view-main-container
+    .about-similar
+    .similar-profile-container
+    .like-card-container
+    .description-container
+    div
+    button {
+    border: none;
+    background-color: transparent;
+    color: #f8cb58;
+    font-size: 20px;
+  }
+  .my-profile-image23{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+  }
+  .my-profile-image23-single{
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  @media (max-width: 1150px) {
+    .profile-view-main-container .about-card .about-card-container {
+      width: 100%;
+      padding: 20px 10px 20px 20px;
+    }
+    .profile-view-main-container
+      .about-card
+      .about-card-container
+      .description-container {
+      width: 100%;
+    }
+    .profile-view-main-container
+      .about-card
+      .about-card-container
+      .basic-details-container {
+      width: 90%;
+    }
+    .profile-view-main-container .about-card .profile-like-container {
+      width: 100%;
+    }
+    .profile-view-main-container .about-card .like-card-container {
+      padding: 0;
+    }
+    .profile-view-main-container .about-card .like-card-container .like-card {
+      flex: 1 1 calc(100%);
+    }
+    .profile-cards {
+      width: 95%;
+      margin: auto;
+    }
+    .profile-view-main-container .about-similar {
+      margin: auto;
+      width: 95%;
+    }
+    .profile-view-main-container .about-card {
+      margin-left: 0px;
+    }
+  }
+  @media (max-width: 768px) {
+    .profile-view-main-container .about-similar {
+      flex-direction: column;
+    }
+    .profile-view-main-container .about-card {
+      width: 100%;
+    }
+    .profile-view-main-container .about-similar .similar-profile-container {
+      width: 100%;
+      margin-top: 0;
+    }
+    .profile-view-main-container
+      .about-similar
+      .similar-profile-container
+      .main-similar-profile {
+      margin-bottom: 20px;
+    }
+    .profile-cards .premium-container {
+      width: auto;
+    }
+    .all-match {
+      padding: 20px 0px;
+    }
+  }
+  @media (max-width: 500px) {
+    .profile-cards .verify-container {
+      display: none;
+    }
+    .profile-cards {
+      flex-direction: column;
+    }
+    .profile-cards .premium-container {
+      display: none;
+    }
+    .profile-cards .verify-container {
+      display: none;
+    }
+    .profile-cards .image-container {
+      width: 100%;
+    }
+  }
+  

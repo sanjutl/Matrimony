@@ -1,0 +1,207 @@
+.firstheader h1{
+  font-size: 40px;
+  margin-left: 80px;
+  margin-top: 50px;
+}
+.firstTextContainer 
+{
+  margin-top: 30px;
+  margin-left: 100px;
+}
+.firstTextContainer p{
+  font-size: 15px;
+  line-height: 20px;
+}
+.firstTextContainer h2{
+  margin-top: 30px;
+  font-size: 20px;
+}
+.ViolationHeader {
+  margin-left: 100px;
+  margin-top: 50px;
+}
+.ViolationHeader h1{
+  font-size: 25px;
+}
+.ViolationList ul{
+  margin-left: 20px;
+  margin-top: 20px;
+  line-height: 30px;
+}
+.ViolationList li{
+  list-style-type: " > ";
+}
+/* Container Styling */
+.form-container5 {
+  display: flex;
+  justify-content: left;
+  max-width: 500px;
+  gap: 30px;
+  margin-left: 80px;
+  padding: 20px;
+  border-radius: 12px;
+ 
+}
+.form-container5_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  max-width: 800px;
+  gap: 10px;
+  margin-left: 80px;
+  padding: 20px;
+  border-radius: 12px;
+ 
+}
+.form-container5_1 label{
+  display: block;
+  width: 200px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Label Styling */
+/* label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+} */
+
+/* Select Box Styling */
+.form-container5 select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+/* Input Box Styling */
+.form-container5 input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+/* Textarea Styling */
+.form-container5_1 textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  resize: none;
+  margin-bottom: 16px;
+}
+.form-container5_2{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  max-width: 800px;
+  gap: 10px;
+  margin-left: 80px;
+  /* background-color: white; */
+  padding: 20px;
+  border-radius: 12px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+.form-container5_2 textarea{
+  width: 400px;
+  height: 50px;
+}
+.btncontainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+}
+.submitButton {
+  width: 20%;
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  /* margin: auto; */
+  border: none;
+  margin-left: 20px;
+  /* border: 2px solid white; */
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .firstheader h1, 
+  .ViolationHeader {
+    text-align: left;
+  }
+  .firstTextContainer p{
+    margin-right: 50px;
+  }
+  .form-container5, 
+  .form-container5_1, 
+  .form-container5_2 {
+    max-width: 100%;
+    margin-left: 10px;
+    padding: 15px;
+  }
+
+  .btncontainer {
+    margin-left: 0;
+  }
+
+  .submitButton {
+    width: 40%;
+  }
+
+  .ViolationList ul {
+    margin-left: 10px;
+  }
+
+  .form-container5_2 textarea {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .firstheader h1, 
+  .ViolationHeader h1 {
+    font-size: 28px;
+    
+  }
+
+  .form-container5, 
+  .form-container5_1, 
+  .form-container5_2 {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .submitButton {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .firstTextContainer {
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+
+  .btncontainer {
+    justify-content: center;
+    
+    margin: 0;
+  }
+}
