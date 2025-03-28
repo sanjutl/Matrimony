@@ -101,7 +101,7 @@ function UserMain() {
   if (error) {
     return <div>{error}</div>;
   }
-  const handlePayment = async (userId, profileId) => {
+  const handlePayment = async (userId) => {
     Navigate(`/checkout/${userId}`);
   };
 

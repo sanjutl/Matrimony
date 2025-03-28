@@ -59,7 +59,7 @@
         const fontSize = 12;
         const titleSize = 20;
         const sectionTitleSize = 14;
-        const lineHeight = 24;zz
+        const lineHeight = 24;
         let yPos = height - 50;
     
         // Invoice Title

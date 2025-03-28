@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
-
 import DashStyles from "./dashboard.module.css";
 import {
   Pen,
@@ -24,9 +22,8 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { clearUser } from "../../features/slice";
-import { Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import baseUrl from "../../baseUrl";
+
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -392,6 +389,9 @@ function Dashboard() {
       headingRef.current[index] = el;
       if (observerRef.current) observerRef.current.observe(el);
     }
+  };
+  const handlePayment = async (userId) => {
+    navigate(`/checkout/${userId}`);
   };
   return (
     <div>
