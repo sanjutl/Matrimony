@@ -1,7 +1,5 @@
 import React from "react";
 import "./adminnav.css";
-import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Badge, Space } from 'antd';
 
 function Nav() {
   return (

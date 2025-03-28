@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./nav.css";
 import axios from "axios";
 import { io } from "socket.io-client";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import baseUrl from "../../baseUrl";
 const socket = io(`${baseUrl}`, {
   transports: ["websocket", "polling"],

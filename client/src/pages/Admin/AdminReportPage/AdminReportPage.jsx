@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./AdminReportPage.css";
 import Sidebar from "../../../component/sidebar/Sidebar";
-import verification from "../../../assets/circle-check-regular.svg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
@@ -11,7 +10,6 @@ import baseUrl from "../../../baseUrl.js";
 
 function AdminReportPage() {
   const[UserData,setUserData]=useState([]);
-  console.log("this",UserData)
   
    const fetchReportData = async () => {
     try {

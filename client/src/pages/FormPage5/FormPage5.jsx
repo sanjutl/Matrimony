@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styles from "../FormPage3/formpage3.module.css";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
-import Loader from "../../component/Loader/Loadertext.jsx";
 import baseUrl from "../../baseUrl.js";
 
 function FormPage5() {

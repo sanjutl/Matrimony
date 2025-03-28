@@ -6,11 +6,7 @@ import {
   Gear,
   Question,
   ShieldCheck,
-  Shield,
   HeartStraight,
-  Headset,
-  Users,
-  Crown,
   User,
   SignOut,
 } from "phosphor-react";

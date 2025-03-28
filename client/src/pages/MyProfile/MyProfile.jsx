@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
 import Nav from "../../component/Navbar/Nav";
 import Footer from "../../component/Footer/Footer";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import "../MyProfile/myprofile.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";

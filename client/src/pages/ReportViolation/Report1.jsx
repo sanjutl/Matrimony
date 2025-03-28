@@ -3,7 +3,6 @@ import "./report1.css";
 import Nav from "../../component/Navbar/Nav";
 import Footer from "../../component/Footer/Footer";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

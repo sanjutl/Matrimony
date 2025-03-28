@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styles from "../FormPage1/formpage1.module.css";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

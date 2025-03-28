@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Nav from "../../../component/AdminNav/Adminnav";
-import padam from "../../../assets/bridde.jpg";
 import "./adminuserprofile.css";
 import { useParams } from "react-router-dom";
 import { Link, useNavigate } from "react-router";

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./usermain.css";
 import Nav from "../../component/Navbar/Nav";
-import padam from "../../assets/bridde.jpg";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Footer from "../../component/Footer/Footer";
 import axios from "axios"; // Import axios
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import baseUrl from "../../baseUrl";
 import DashStyles from "../Dashboard/dashboard.module.css";
 

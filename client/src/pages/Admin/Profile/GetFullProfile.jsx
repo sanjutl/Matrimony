@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Sidebar from "../../../component/sidebar/Sidebar";
 import Profilebox from "./ProfileComponent";
 import Pagination from "../components/PaginationAdmin";
 import "./GetFullProfile.css";

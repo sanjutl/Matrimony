@@ -1,17 +1,13 @@
 import React, { useEffect, useState, useRef} from "react";
-import { motion } from "framer-motion";
-
 import DashStyles from "../Dashboard/dashboard.module.css";
-import { HeartStraight, SlidersHorizontal, Pencil, X } from "phosphor-react";
+import { HeartStraight, SlidersHorizontal, X } from "phosphor-react";
 import { Link, useNavigate } from "react-router-dom";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import Nav from "../../component/Navbar/Nav";
 import Footer from "../../component/Footer/Footer";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import PaginationAdmin from "../Admin/components/PaginationAdmin";
 import baseUrl from "../../baseUrl";
-import CardComponent from "../../component/CardCpmponent/CardComponent";
 
 function TopRecommendation() {
   const dispatch = useDispatch();

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./formpage1.module.css";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";

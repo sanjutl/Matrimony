@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import DashStyles from "./likedprofiles.module.css";
 import { HeartStraight } from "phosphor-react";
 import { Link, useParams,useNavigate } from "react-router-dom";
-import image from "../../assets/free-photo-of-couple-in-green-grass-field.jpeg";
 import Nav from "../../component/Navbar/Nav";
 import Footer from "../../component/Footer/Footer";
 import axios from "axios";

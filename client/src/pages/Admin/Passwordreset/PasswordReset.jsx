@@ -24,7 +24,6 @@ function PasswordReset() {
         `${baseUrl}/api/v1/admin/resetpasswordadmin/${token}`,
         { password: showPassword }
       );
-      console.log(response.status);
 
       if (response.status === 200) {
         toast.success("Password reset successfully", {
