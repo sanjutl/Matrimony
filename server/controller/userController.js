@@ -607,7 +607,7 @@ const topMatch = async (req, res) => {
     // Use 'city' instead of 'location' and case-insensitive gender check
     const userCity = user.city ? user.city.trim() : '';
     const userOccupation = user.occupation ? user.occupation.trim() : '';
-
+    const userMaritalStatus=user.maritalStatus?user.maritalStatus.trim():'';
     const matchQuery = {
       $or: [
         ...(userCity ? [{ city: { $regex: new RegExp(`^${escapeRegex(userCity)}$`, "i") } }] : []),
@@ -615,6 +615,10 @@ const topMatch = async (req, res) => {
           ? [{ hobbies: { $regex: hobbiesRegex, $options: "i" } }]
           : []),
         ...(userOccupation ? [{ occupation: { $regex: new RegExp(`^${escapeRegex(userOccupation)}$`, "i") } }] : []),
+        ...(userMaritalStatus
+          ? [{ maritalStatus: { $regex: new RegExp(`^${escapeRegex(userMaritalStatus)}$`, "i") } }]
+          : [])
+        
       ],
       gender: { $regex: new RegExp(`^${oppositeGender}$`, 'i') }, // Case-insensitive gender check
       _id: { $ne: user._id }, // Exclude the current user
@@ -622,7 +626,7 @@ const topMatch = async (req, res) => {
 
     // Find matching users
     const matches = await User.find(matchQuery).select(
-      "firstName occupation age city hobbies gender height profilePicture"
+      "firstName occupation age city hobbies gender height profilePicture maritalStatus"
     );
 
     if (matches.length === 0) {
@@ -638,7 +642,8 @@ const topMatch = async (req, res) => {
       city: match.city,
       hobbies: match.hobbies,
       height: match.height,
-      profilePicture: match.profilePicture
+      profilePicture: match.profilePicture,
+      maritalStatus:match.maritalStatus
     }));
 
     res.status(200).json({ message: "Matches found", matches: response });

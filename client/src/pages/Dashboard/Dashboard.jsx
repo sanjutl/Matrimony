@@ -567,7 +567,7 @@ function Dashboard() {
                       className={DashStyles.HelpButton}
                       onClick={() =>
                         window.open(
-                          "https://mail.google.com/mail/?view=cm&fs=1&to=support@example.com&su=Help%20Request",
+                          "https://mail.google.com/mail/?view=cm&fs=1&to=ukezhavamatrimony@gmail.com&su=Help%20Request",
                           "_blank"
                         )
                       }

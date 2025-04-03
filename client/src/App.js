@@ -45,6 +45,10 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<LoginPAge />} />
           <Route path="/OtpPage" element={<OtpPage />} />
+          <Route
+            path="/resetPasswordUser/:id/:token"
+            element={<UserPasswordReset />}
+          />
           <Route element={<ProtectedRoute allowedRoles={[300]} />}>
             <Route path="/formpage1" element={<FormPage1 />} />
             <Route path="/formpage2" element={<FormPage2 />} />
@@ -61,10 +65,7 @@ function App() {
             <Route path="/mainuser/:id" element={<UserMain />} />
             <Route path="/Usettings" element={<UserSettings />} />
             <Route path="/Usettings/:id" element={<UserSettings />} />
-            <Route
-              path="/resetPasswordUser/:id/:token"
-              element={<UserPasswordReset />}
-            />
+
             <Route path="/likedprofiles/:id" element={<LikedProfiles />} />
             <Route path="/myprofile/:id" element={<MyProfile />} />
           </Route>
@@ -98,13 +99,9 @@ function App() {
 
           <Route path="/adminlanding" element={<AdminLanding />} />
 
-
           {/* <Route path="main/mainuser/:id" element={<UserMain/>} /> */}
           <Route path="/checkout/:userId" element={<Checkout />} />
-          <Route
-            path="/payment-success/"
-            element={<PaymentSuccess />}
-          />
+          <Route path="/payment-success/" element={<PaymentSuccess />} />
         </Routes>
 
         <ToastContainer
