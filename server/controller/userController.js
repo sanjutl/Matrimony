@@ -73,8 +73,15 @@ const registerUser = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: userEmail,
       subject: "Email Verification - OTP",
-      text: `Your One-Time Password (OTP) for email verification is: ${otp}. 
-        The OTP is valid for 10 minutes.`,
+      html: `
+    <div style="font-family: Arial, sans-serif; color: #333;">
+      <h2 style="color: #007bff;">Email Verification</h2>
+      <p>Your One-Time Password (OTP) for email verification is:</p>
+      <p style="font-size: 24px; font-weight: bold; color: #d9534f; background: #f8d7da; padding: 10px; border-radius: 5px; display: inline-block;">
+        ${otp}
+      </p>
+      <p>The OTP is valid for <strong>10 minutes</strong> .Do not share with anyone.</p>
+    </div>`,
     };
 
     await transporter.sendMail(mailOptions);
