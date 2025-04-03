@@ -908,7 +908,7 @@ a {
   transform: scale(1.05);
 }
 .AdOffers {
-  height: 300px;
+  height: max-content;
   margin-top: 50px;
   background: url('../../assets/background1.jpg') no-repeat center center;
   background-size: cover;
