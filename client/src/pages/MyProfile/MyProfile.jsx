@@ -47,11 +47,13 @@ function MyProfile() {
           `${baseUrl}/api/v1/user/edit/${userId}`,
           formData
         );
-        console.log("Upload successful:", response);
+        toast.success("uploaded successfully");
         setFile([]); // Clear file after upload
         fetchUserData(); // Refresh user data to reflect new images
       } catch (error) {
         console.log("Upload error:", error);
+        toast.error("upload error, try another image");
+
       }
     };
 
