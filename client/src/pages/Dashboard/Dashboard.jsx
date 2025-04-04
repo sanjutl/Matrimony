@@ -917,7 +917,7 @@ function Dashboard() {
               </div>
               {isModalOpen && (
                 <div className="modal-overlay">
-                  <div className="modal">
+                  <div className="modal" style={{transform:"0px"}}>
                     <h2>Unlock Unlimited Profiles</h2>
                     <p>25 Pounds as welcome offer</p>
                     <button onClick={() => handlePayment(userId)}>

@@ -67,10 +67,11 @@ const OtpPage = () => {
       );
       setMessage("OTP resent successfully!");
       setError("");
-      console.log(response);
+      toast.success("OTP Sent To You Registered Mail");
       
     } catch (err) {
-      console.error("Resend OTP Error:", err);
+      toast.success("Failed to resend OTP. Please try again.");
+
       setError("Failed to resend OTP. Please try again.");
     }
   };
@@ -124,7 +125,7 @@ const OtpPage = () => {
         
         </form>
         <div class="resend" onClick={handleResendOtp}>
-            Didn't receive code? 
+            Resend Otp? 
             
         </div>
     </div>
