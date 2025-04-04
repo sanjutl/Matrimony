@@ -934,7 +934,7 @@ function Dashboard() {
               <div className={DashStyles.trHeading} ref={setHeadingRef(0)}>
                 <h2 className={DashStyles.TrHead}>Top Recommendations</h2>
                 <h4 className={DashStyles.TrContent}>
-                  Members who match your partner preference
+                  Find Your Perfect Match,Made With Love
                 </h4>
               </div>
               <div className={DashStyles.trContentDisplay}>

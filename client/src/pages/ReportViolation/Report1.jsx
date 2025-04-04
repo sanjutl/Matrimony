@@ -76,7 +76,7 @@ function Report1() {
   }, [userData]); // Runs when userData updates
   
   return (
-    <div>
+    <div className="mainContainer-repotPage">
       <Nav />
       <ToastContainer
         position="bottom-right"

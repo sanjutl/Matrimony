@@ -77,8 +77,8 @@ function LoginPage() {
       
         <div className="text-container">
           <h1>Biggest matrimony services for Ezhava</h1>
-          <h2>Find Your Perfect Match!</h2>
-          <p>Find perfect soulmates for your life from 1000 of profiles</p>
+          <h2>Your Journey To Forever Starts Here</h2>
+          <p>Find perfect soulmates for your life from 1000+ of profiles</p>
         </div>
 
         {/* Right section form */}

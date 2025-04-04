@@ -3,6 +3,11 @@
   margin-left: 80px;
   margin-top: 50px;
 }
+.mainContainer-repotPage{
+  position: relative;
+  background-image: url(../../assets/bg-pattern.jpg);
+  width: 100%;
+}
 .firstTextContainer 
 {
   margin-top: 30px;
