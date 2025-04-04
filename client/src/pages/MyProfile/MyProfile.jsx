@@ -5,6 +5,8 @@ import "../MyProfile/myprofile.css";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import baseUrl from "../../baseUrl";
+import { ToastContainer, toast } from "react-toastify";
+
 
 function MyProfile() {
   const [userData, setUserData] = useState({});
@@ -62,6 +64,7 @@ function MyProfile() {
 
   return (
     <div>
+      <ToastContainer/>
       <Nav userId={userId}/>
       <div className="profile-view-main-container">
       <h2 className="all-match">My Profile</h2>

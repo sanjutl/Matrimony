@@ -393,6 +393,7 @@ function Dashboard() {
   };
   return (
     <div>
+      <ToastContainer/>
       <div className={DashStyles.mainContainer}>
         <div className={DashStyles.mainContainerSub}></div>
         <Nav userId={userId} />
