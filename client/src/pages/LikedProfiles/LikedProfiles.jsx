@@ -8,6 +8,8 @@ import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import PaginationAdmin from "../Admin/components/PaginationAdmin";
 import baseUrl from "../../baseUrl";
+import avatarImg from "../../assets/avatar.jpg"
+
 function LikedProfiles() {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.id);
@@ -124,7 +126,7 @@ const navigate=useNavigate();
                           src={
                             item.profilePicture
                               ? `${baseUrl}${item.profilePicture}`
-                              : " "
+                              : `${avatarImg}`
                           }
                           alt=""
                           className={DashStyles.cardImage}

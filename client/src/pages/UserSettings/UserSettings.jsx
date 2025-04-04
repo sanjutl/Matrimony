@@ -92,13 +92,6 @@ function UserSettings() {
             <div className="box-contents5">
               <div className="part-one5">
                 <div className="profile-container5">
-                  <div className="profile-icon5">
-                    <img src={profilePic} alt="Profile" />
-                  </div>
-                  <div className="profile-details5">
-                    <p>{username}</p>
-                    <p>{email}</p>
-                  </div>
                 </div>
               </div>
               <div className="part-two5">

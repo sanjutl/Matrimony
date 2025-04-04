@@ -2,11 +2,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background-image: url('../../assets/bg-pattern.jpg');
 }
 
 .settings-container5 .container-main5 {
   width: 90%;
-  background-color: #ebf3f5;
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 20px;
@@ -30,12 +30,9 @@
 .settings-container5 .container-main5 .contents5 .box-contents5 {
   margin-top: 10px;
   width: 100%;
-  background-color: white;
   padding: 20px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
-    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
-    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+ 
 }
 
 .settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 {
@@ -48,7 +45,6 @@
 .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .form-container-main5 input {
   border-radius: 10px;
   margin-top: 10px;
-  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
   padding: 12px;
 }
 
@@ -88,7 +84,7 @@
 }
 
 .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 button {
-  background-color: blue;
+  background-color: #f8cb58 ;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -96,12 +92,12 @@
 }
 
 .settings-container5 .container-main5 .contents5 .box-contents5 .part-two5 .save-button5 button:hover {
-  background-color: yellow;
+  background-color: rgb(219, 162, 16);
   cursor: pointer;
 }
 
 .settings-container5 .container-main5 .contents5 .box-contents5 .part-one5 .edit-button5 button {
-  background-color: blue;
+  /* background-color: blue; */
   padding: 10px 20px;
   border: none;
   border-radius: 10px;

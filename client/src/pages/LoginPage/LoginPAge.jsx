@@ -4,10 +4,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BounceLoader from "react-spinners/BounceLoader";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
 import baseUrl from "../../baseUrl";
+import Loader from "../../component/Loader/Loadertext"
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -82,7 +82,7 @@ function LoginPage() {
         </div>
 
         {/* Right section form */}
-        {isLoading && <div className="loader"><BounceLoader color="#f8cb58" /> </div>}
+        {isLoading && <div className="loader-div"><Loader  /> </div>}
         <div className="form-container">
           <div className="form-header">
             <h3>Create a Matrimony Profile</h3>

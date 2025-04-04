@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './CheckoutForm.css'
+import Loader from '../../component/Loader/Loadertext';
 import baseUrl from "../../baseUrl"
 const CheckoutForm = ({ userId,  }) => {
   const stripe = useStripe();
@@ -65,7 +66,7 @@ const CheckoutWrapper = ({ userId, stripePromise }) => {
 
   // Only render the Elements when clientSecret is available
   if (!clientSecret) {
-    return <div>Loading...</div>; // Handle case where clientSecret is not set yet
+    return <div style={{height:"100vh",width:"100%",display:"flex",justifyContent:"center",alignItems:"center"}}><Loader/></div>; // Handle case where clientSecret is not set yet
   }
 
   return (

@@ -5,6 +5,7 @@ import {  useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setVerified } from "../../features/slice";
 import baseUrl from "../../baseUrl";
+import { ToastContainer,toast } from "react-toastify";
 
 const OtpPage = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const OtpPage = () => {
     e.preventDefault();
     if (!form.otp) {
       setError("Please enter the OTP.");
+      toast.error("Please enter the OTP.");
       return;
     }
 
@@ -40,18 +42,24 @@ const OtpPage = () => {
       setMessage(response.data.message);
       setError("");
       if (response.status === 200) {
+        toast.success("OTP Verified!");
         dispatch(setVerified({ isVerified: true }));
-        navigate("/formpage1" ,{ state: {id} });
+        setIsLoading(true);
+        // Show loader for 2 seconds before navigating
+        setTimeout(() => {
+
+          navigate("/formpage1", { state: { id } });
+        }, 2000);
       }
     } catch (err) {
       console.error("OTP Verification Error:", err);
+      toast.error(err.response?.data?.message || "Failed to verify OTP.");
       setMessage("");
       setError(err.response?.data?.message || "Failed to verify OTP.");
     } finally {
       setIsLoading(false); // Stop spinner
     }
   };
-
   const handleResendOtp = async () => {
     try {
       const response = await axios.post(
@@ -68,6 +76,7 @@ const OtpPage = () => {
   };
 
   return (
+    
     // <div className="verify-otp-container">
     //   <h2>Verify OTP</h2>
     //   <form onSubmit={handleVerifyOtp}>
@@ -95,6 +104,7 @@ const OtpPage = () => {
     //   </form>
     // </div>
     <div className="otp-container-main">
+      <ToastContainer/>
       <div class="container">
         <h2>OTP Verification</h2>
         <p>Enter the 6-digit code sent to your email</p>

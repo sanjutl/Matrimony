@@ -911,28 +911,34 @@ a {
 .AdOffers {
   height: max-content;
   margin-top: 50px;
-  background: url('../../assets/background1.jpg') no-repeat center center;
+  background: url('../../assets/2bf88199c97c757660a7524667ecb10f.jpg') no-repeat center center;
   background-size: cover;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 2px 10px rgba(28, 28, 25, 0.911);
   animation: fadeIn 0.8s ease-in-out;
+  background-position: right;
+  transform: scaleX(-1);
 }
 
 /* Headings */
 .AdOffersHead {
-  color: #ff2a0068; 
+  color: #e29911; 
   font-family:Cookie;
   font-size: 48px;
   margin-bottom: 10px;
   font-weight: 300;
+  transform: scaleX(-1);
+
 }
 
 .AdOffersMain {
   font-size: 18px;
   color: #999;
   text-decoration: line-through;
+  transform: scaleX(-1);
+
 }
 
 .AdOffersPrice {
@@ -940,14 +946,21 @@ a {
   color: #e63946;
   font-weight: bold;
   animation: bounce 1.5s infinite;
+  transform: scaleX(-1);
+
 }
 
 /* Description */
 .AdOffersPara {
   font-size: 26px;
-  color: #555;
+  color: rgba(157, 34, 34, 0.844);
   margin-top: 8px;
+  -webkit-text-stroke: 1px rgb(233, 134, 28); /* thickness and color of stroke */
+  text-shadow: 1px 1px 2px rgb(250, 213, 139); /* optional for a bit more depth */
+  transform: scaleX(-1);
+
 }
+
 
 
 .paymentButtonAds {
@@ -960,11 +973,14 @@ a {
   cursor: pointer;
   transition: 0.3s ease;
   margin-top: 20px;
+  transform: scaleX(-1);
+
 }
 
 .paymentButtonAds:hover {
   background: #e64a19;
   transform: scale(1.05);
+
 }
 
 /* Modal Overlay */
@@ -1260,12 +1276,12 @@ a {
 }
 @keyframes bounce {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scaleX(-1);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-18%) scaleX(-1);
   }
-}
+} 
 @keyframes pop {
   0%, 100% {
     transform: rotate(-15deg) scale(1);

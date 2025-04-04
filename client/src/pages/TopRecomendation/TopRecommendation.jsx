@@ -8,6 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import PaginationAdmin from "../Admin/components/PaginationAdmin";
 import baseUrl from "../../baseUrl";
+import avatarImg from "../../assets/avatar.jpg"
+
 
 function TopRecommendation() {
   const dispatch = useDispatch();
@@ -899,7 +901,7 @@ function TopRecommendation() {
                         src={
                           item.profilePicture
                             ? `${baseUrl}${item.profilePicture}`
-                            : " "
+                            : `${avatarImg}`
                         }
                         alt="CardImage"
                         className={DashStyles.cardImage}

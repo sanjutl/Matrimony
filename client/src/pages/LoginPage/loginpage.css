@@ -147,15 +147,12 @@ body {
   color: #777;
   text-align: left;
 }
-.loader{
+.loader-div {
   position: absolute;
-  height: 100px;
-  border-radius: 50%  ;
-  width: 100px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
 }
 @media (max-width: 1024px) {
   .main-container {

@@ -8,7 +8,7 @@ import axios from "axios"; // Import axios
 import { useSelector } from "react-redux";
 import baseUrl from "../../baseUrl";
 import DashStyles from "../Dashboard/dashboard.module.css";
-
+import avatarImg from "../../assets/avatar.jpg"
 function UserMain() {
   const Navigate = useNavigate();
   const userId = useSelector((state) => state.user.id);
@@ -94,7 +94,7 @@ function UserMain() {
   }, [unlockedProfiles, id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   if (error) {
@@ -114,7 +114,7 @@ function UserMain() {
               src={
                 userData.profilePicture
                   ? `${baseUrl}${userData.profilePicture}`
-                  : ""
+                  : `${avatarImg}`
               }
               alt="Profile"
               className="profile-image"

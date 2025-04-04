@@ -42,8 +42,9 @@
 }
 .backgroundImage{
   box-shadow: none;
-  background-image: url("../../assets/background1.jpg");
-  background-size: cover;
+  background-image: url("../../assets/2bf88199c97c757660a7524667ecb10f.jpg");
+  background-size: fill
+  ;
 }
 .profile-cards .details-sections {
   display: flex;

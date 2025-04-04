@@ -1,121 +1,54 @@
-import { Color } from 'antd/es/color-picker';
-import React from 'react';
-import styled from 'styled-components';
+import { Color } from "antd/es/color-picker";
+import React from "react";
+import "./loader.css";
 
 const Loadertext = () => {
   return (
-    <StyledWrapper>
-      {/* <div className="loaderText" style={{ position: 'absolute', top: "50%" }}>
-        <div style={{ position: 'relative', }}>
-          <span />
-          <span />
-          <span />
-        </div>
-      </div> */}
-      <div className="container">
-        <div className="preloader">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="shadow" />
-      </div>
-    </StyledWrapper>
+    <div>
+      <svg
+        class="pl"
+        viewBox="0 0 200 200"
+        width="200"
+        height="200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+            <stop offset="0%" stop-color="hsl(50, 100%, 55%)" />
+            <stop offset="100%" stop-color="hsl(40, 100%, 50%)" />
+          </linearGradient>
+          <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="hsl(50, 100%, 55%)" />
+            <stop offset="100%" stop-color="hsl(40, 100%, 50%)" />
+          </linearGradient>
+        </defs>
+        <circle
+          class="pl__ring"
+          cx="100"
+          cy="100"
+          r="82"
+          fill="none"
+          stroke="url(#pl-grad1)"
+          stroke-width="36"
+          stroke-dasharray="0 257 1 257"
+          stroke-dashoffset="0.01"
+          stroke-linecap="round"
+          transform="rotate(-90,100,100)"
+        />
+        <line
+          class="pl__ball"
+          stroke="url(#pl-grad2)"
+          x1="100"
+          y1="18"
+          x2="100.01"
+          y2="182"
+          stroke-width="36"
+          stroke-dasharray="1 165"
+          stroke-linecap="round"
+        />
+      </svg>
+    </div>
   );
-}
-
-const StyledWrapper = styled.div`
-  .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .container .preloader {
-    animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
-  }
-
-  @keyframes rotate {
-    50% {
-      transform: rotate(360deg);
-    }
-
-    100% {
-      transform: rotate(720deg);
-    }
-  }
-
-  .preloader span {
-    --c: #F8CB58;
-    position: absolute;
-    display: block;
-    height: 64px;
-    width: 64px;
-    background: var(--c);
-    border: 1px solid var(--c);
-    border-radius: 100%;
-  }
-
-  .preloader span:nth-child(1) {
-    transform: translate(-28px, -28px);
-    animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
-  }
-
-  @keyframes shape_1 {
-    60% {
-      transform: scale(0.4);
-    }
-  }
-
-  .preloader span:nth-child(2) {
-    transform: translate(28px, -28px);
-    animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
-  }
-
-  @keyframes shape_2 {
-    40% {
-      transform: scale(0.4);
-    }
-  }
-
-  .preloader span:nth-child(3) {
-    position: relative;
-    border-radius: 0px;
-    transform: scale(0.98) rotate(-45deg);
-    animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
-  }
-
-  @keyframes shape_3 {
-    50% {
-      border-radius: 100%;
-      transform: scale(0.5) rotate(-45deg);
-    }
-
-    100% {
-      transform: scale(0.98) rotate(-45deg);
-    }
-  }
-
-  .shadow {
-    position: relative;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: block;
-    height: 16px;
-    width: 64px;
-    border-radius: 50%;
-    background-color: #d9d9d9;
-    border: 1px solid #d9d9d9;
-    animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
-  }
-
-  @keyframes shadow {
-    50% {
-      transform: translateX(-50%) scale(0.5);
-      border-color: #f2f2f2;
-    }
-  }`;
+};
 
 export default Loadertext;

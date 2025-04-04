@@ -95,8 +95,8 @@ function Report1() {
         <p>
           We work with cyber police to take into custody people who misuse our
           services. We need your support and co-operation to stop violation. You
-          can reach out to us at +91-9962043543 (8am to 8pm) or by sending an
-          email to reportabuse@ukezhavamatrimony.com, and we will take necessary
+          can reach out to us  by sending an
+          email to ukezhavamatrimony@gmail.com, and we will take necessary
           action. Also, while reporting such complaints, please provide all
           evidence including any e-mail (Full header of the e-mail) you may have
           received.

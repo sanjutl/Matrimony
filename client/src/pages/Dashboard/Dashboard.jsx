@@ -19,6 +19,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { clearUser } from "../../features/slice";
 import baseUrl from "../../baseUrl";
+import avatarImg from "../../assets/avatar.jpg"
 
 
 function Dashboard() {
@@ -393,12 +394,10 @@ function Dashboard() {
   };
   return (
     <div>
-      {/* <ToastContainer position="bottom-right" /> */}
       <div className={DashStyles.mainContainer}>
         <div className={DashStyles.mainContainerSub}></div>
         <Nav userId={userId} />
         <div className={DashStyles.SubContainer}>
-          {/* static details div for larger screens  starts*/}
           <div className={DashStyles.sideBar}>
             <div className={DashStyles.ProfileDiv}>
               <div className={DashStyles.ProfileCard}>
@@ -904,8 +903,8 @@ function Dashboard() {
           >
           <div className={DashStyles.AdOffers}>
               <h1 className={DashStyles.AdOffersHead}>Welcome Offer</h1>
-              <h6 className={DashStyles.AdOffersMain}>100 £</h6>
-              <h5 className={DashStyles.AdOffersPrice}>25 £</h5>
+              <h6 className={DashStyles.AdOffersMain}> £ 100</h6>
+              <h5 className={DashStyles.AdOffersPrice}> £ 25</h5>
               <p className={DashStyles.AdOffersPara}>
                 Unlock all the profiles with just 25 Pounds
               </p>
@@ -936,7 +935,7 @@ function Dashboard() {
               <div className={DashStyles.trHeading} ref={setHeadingRef(0)}>
                 <h2 className={DashStyles.TrHead}>Top Recommendations</h2>
                 <h4 className={DashStyles.TrContent}>
-                  Find Your Perfect Match,Made With Love
+                  Find Your Perfect Match, Made With Love
                 </h4>
               </div>
               <div className={DashStyles.trContentDisplay}>
@@ -955,7 +954,7 @@ function Dashboard() {
                           src={
                             item.profilePicture
                               ? `${baseUrl}${item.profilePicture}`
-                              : " "
+                              : `${avatarImg}`
                           }
                           alt=""
                           className={DashStyles.cardImage}
@@ -1044,7 +1043,7 @@ function Dashboard() {
                           src={
                             item.profilePicture
                               ? `${baseUrl}${item.profilePicture}`
-                              : ""
+                              : `${avatarImg}`
                           }
                           alt=""
                           className={DashStyles.cardImage}

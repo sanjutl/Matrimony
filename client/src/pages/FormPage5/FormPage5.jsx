@@ -6,21 +6,22 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
 import baseUrl from "../../baseUrl.js";
+import Loader from "../../component/Loader/Loadertext.jsx";
 
 function FormPage5() {
-  const { id ,token,role} = useSelector((state) => state.user);
+  const { id, token, role } = useSelector((state) => state.user);
   const [employmentStatus, setEmploymentStatus] = useState("");
   const [residentStatus, setResidentStatus] = useState("");
   const [form, setForm] = useState({});
   const [userProfie, setUserProfile] = useState([]);
-  const [errors,setErrors]=useState({})
-  // const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     setForm((prev) => ({
       ...prev,
       [name]: value,
@@ -39,7 +40,7 @@ function FormPage5() {
       return;
     }
     setErrors({});
-    // setIsLoading(true);
+    setIsLoading(true);
     const formData = {
       ...form,
       employmentStatus,
@@ -52,7 +53,7 @@ function FormPage5() {
       );
       if (response.status === 200) {
         setTimeout(() => {
-          // setIsLoading(false);
+          setIsLoading(false);
           dispatch(setUser({ id: id, token: token, role: role }));
           navigate(`/dashboard/${id}`);
         }, 3000);
@@ -60,7 +61,7 @@ function FormPage5() {
     } catch (error) {
       console.error(error);
       alert("An error occurred while submitting the form.");
-      // setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -306,72 +307,76 @@ function FormPage5() {
   ];
   const countryCities = {
     England: [
-      "London", 
-      "Manchester", 
-      "Birmingham", 
-      "Liverpool", 
-      "Leeds", 
-      "Bristol", 
-      "Sheffield", 
-      "Newcastle", 
-      "Nottingham", 
-      "Leicester", 
-      "Coventry", 
-      "Brighton", 
-      "Cambridge", 
-      "Oxford", 
-      "Exeter", 
-      "Southampton", 
-      "Portsmouth", 
-      "Norwich", 
-      "Plymouth", 
-      "York", 
-      "Luton", 
-      "Blackpool", 
-      "Bradford"
+      "London",
+      "Manchester",
+      "Birmingham",
+      "Liverpool",
+      "Leeds",
+      "Bristol",
+      "Sheffield",
+      "Newcastle",
+      "Nottingham",
+      "Leicester",
+      "Coventry",
+      "Brighton",
+      "Cambridge",
+      "Oxford",
+      "Exeter",
+      "Southampton",
+      "Portsmouth",
+      "Norwich",
+      "Plymouth",
+      "York",
+      "Luton",
+      "Blackpool",
+      "Bradford",
     ],
     Scotland: [
-      "Edinburgh", 
-      "Glasgow", 
-      "Aberdeen", 
-      "Dundee", 
-      "Inverness", 
-      "Stirling", 
-      "Perth", 
-      "Falkirk", 
-      "Paisley", 
-      "Livingston", 
-      "Dunfermline"
+      "Edinburgh",
+      "Glasgow",
+      "Aberdeen",
+      "Dundee",
+      "Inverness",
+      "Stirling",
+      "Perth",
+      "Falkirk",
+      "Paisley",
+      "Livingston",
+      "Dunfermline",
     ],
     Wales: [
-      "Cardiff", 
-      "Swansea", 
-      "Newport", 
-      "Bangor", 
-      "Wrexham", 
-      "Barry", 
-      "Bridgend", 
-      "Merthyr Tydfil", 
-      "Caerphilly", 
-      "Llanelli"
+      "Cardiff",
+      "Swansea",
+      "Newport",
+      "Bangor",
+      "Wrexham",
+      "Barry",
+      "Bridgend",
+      "Merthyr Tydfil",
+      "Caerphilly",
+      "Llanelli",
     ],
     "Northern Ireland": [
-      "Belfast", 
-      "Derry", 
-      "Lisburn", 
-      "Newry", 
-      "Armagh", 
-      "Bangor", 
-      "Antrim", 
-      "Coleraine", 
-      "Carrickfergus", 
-      "Ballymena"
-    ]
+      "Belfast",
+      "Derry",
+      "Lisburn",
+      "Newry",
+      "Armagh",
+      "Bangor",
+      "Antrim",
+      "Coleraine",
+      "Carrickfergus",
+      "Ballymena",
+    ],
   };
-  
+
   return (
     <div className={styles.mainContainer}>
-      {/* {isLoading && <Loader />} */}
+      {isLoading && (
+        <div className="loader-div">
+          <Loader />{" "}
+        </div>
+      )}
       <div className={styles.progressDiv}>
         <div className={styles.progressHeading}>You have completed</div>
         <div className={styles.progressHeading2}>90%</div>
@@ -395,7 +400,10 @@ function FormPage5() {
 
           <div className={styles.formContainer}>
             <h3 className={styles.formHeading}>
-              Tell us about your friends personal details
+              {" "}
+              {userProfie.relation === "Myself"
+                ? "Tell Us About yourself"
+                : `Tell Us About your ${userProfie.relation} `}
             </h3>
 
             <form className={styles.form} onSubmit={handleSubmit}>
@@ -634,55 +642,55 @@ function FormPage5() {
                 </div>
               </div>
               <div className={styles.formGroup}>
-        <div className={styles.fieldGroup}>
-          <div className={styles.labelGroup}>
-            <label>Country</label>
-            <p className={styles.starHead}>*</p>
-          </div>
-          <div className={styles.inputGroup}>
-            <select
-              className={styles.input}
-              required
-              value={form.country}
-              onChange={handleChange}
-              name="country"
-            >
-              <option value="">Select Your Country</option>
-              {Object.keys(countryCities).map((country) => (
-                <option key={country} value={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
-      {form.country && (
-        <div className={styles.formGroup}>
-          <div className={styles.fieldGroup}>
-            <div className={styles.labelGroup}>
-              <label>City</label>
-              <p className={styles.starHead}>*</p>
-            </div>
-            <div className={styles.inputGroup}>
-              <select
-                className={styles.input}
-                required
-                value={form.location}
-                onChange={handleChange}
-                name="location"
-              >
-                <option value="">Select Your City</option>
-                {countryCities[form.country].map((location) => (
-                  <option key={location} value={location}>
-                    {location}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-      )}
+                <div className={styles.fieldGroup}>
+                  <div className={styles.labelGroup}>
+                    <label>Country</label>
+                    <p className={styles.starHead}>*</p>
+                  </div>
+                  <div className={styles.inputGroup}>
+                    <select
+                      className={styles.input}
+                      required
+                      value={form.country}
+                      onChange={handleChange}
+                      name="country"
+                    >
+                      <option value="">Select Your Country</option>
+                      {Object.keys(countryCities).map((country) => (
+                        <option key={country} value={country}>
+                          {country}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+              {form.country && (
+                <div className={styles.formGroup}>
+                  <div className={styles.fieldGroup}>
+                    <div className={styles.labelGroup}>
+                      <label>City</label>
+                      <p className={styles.starHead}>*</p>
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <select
+                        className={styles.input}
+                        required
+                        value={form.location}
+                        onChange={handleChange}
+                        name="location"
+                      >
+                        <option value="">Select Your City</option>
+                        {countryCities[form.country].map((location) => (
+                          <option key={location} value={location}>
+                            {location}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -709,7 +717,7 @@ function FormPage5() {
                   <div className={styles.helperTextDiv}></div>
                 </div>
               </div>
-              
+
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -741,7 +749,7 @@ function FormPage5() {
                 <button
                   type="submit"
                   className={styles.submitButton}
-                  // disabled={isLoading}
+                  disabled={isLoading}
                 >
                   Complete
                 </button>

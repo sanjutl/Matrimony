@@ -67,20 +67,7 @@ function Footer() {
               </div>
             </div>
 
-            {/* <div className="part-five">
-              <div className="social-media">
-                <div className="heading">
-                  <h4>Social Media</h4>
-                </div>
-                <div className="image-container">
-                  <div class="facebook">
-                    <img src="" alt="" />
-                  </div>
-                  <div class="twitter"></div>
-                  <div class="insta"></div>
-                </div>
-              </div>
-            </div> */}
+          
           </div>
           <div class="copy-right-footer">
             <p>Developed by Scipy Technologies</p>

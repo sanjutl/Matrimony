@@ -7,8 +7,8 @@ import { Notification } from "../model/notificationModel.js";
 import mongoose from "mongoose";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from 'url';
-import { __dirname } from '../app.js';
+import { fileURLToPath } from "url";
+import { __dirname } from "../app.js";
 
 const generateShortId = () => {
   const timestamp = Date.now(); // Get current time in milliseconds
@@ -44,7 +44,7 @@ const registerUser = async (req, res) => {
 
     const otp = crypto.randomInt(100000, 999999);
     const hashedOtp = await bcrypt.hash(otp.toString(), 10);
-    const otpExpiry = Date.now() + 10 * 60 * 1000; 
+    const otpExpiry = Date.now() + 10 * 60 * 1000;
 
     const user = await User.create({
       relation,
@@ -52,14 +52,14 @@ const registerUser = async (req, res) => {
       userEmail,
       userId,
       role,
-      otp: hashedOtp, 
-      otpExpiry, 
-      isVerified: false, 
+      otp: hashedOtp,
+      otpExpiry,
+      isVerified: false,
     });
     const token = jwt.sign(
       { id: user._id, email: user.userEmail, role: user.role },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: "7d" } 
+      { expiresIn: "7d" }
     );
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -87,7 +87,8 @@ const registerUser = async (req, res) => {
     await transporter.sendMail(mailOptions);
 
     return res.status(201).json({
-      message: "User registered successfully. Please check your email for the OTP.",
+      message:
+        "User registered successfully. Please check your email for the OTP.",
       user: {
         id: user._id,
         relation: user.relation,
@@ -97,7 +98,6 @@ const registerUser = async (req, res) => {
       },
       token,
     });
-    
   } catch (err) {
     console.error("Error during registration:", err);
     return res
@@ -109,18 +109,20 @@ const logout = async (req, res) => {
   try {
     const { refreshToken } = req.cookies;
     if (!refreshToken) {
-      return res.status(204).json({ message: "Invalid Cookie" })
+      return res.status(204).json({ message: "Invalid Cookie" });
     }
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: false,
-      sameSite: "None"
-    })
-    return res.status(200).json({ message: "Logout Successfully" })
+      sameSite: "None",
+    });
+    return res.status(200).json({ message: "Logout Successfully" });
   } catch (error) {
-    return res.status(500).json({ message: `Internal server error due to ${error.message}` })
+    return res
+      .status(500)
+      .json({ message: `Internal server error due to ${error.message}` });
   }
-}
+};
 
 const editUser = async (req, res) => {
   const { id } = req.params;
@@ -164,7 +166,7 @@ const editUser = async (req, res) => {
     educationDetails,
     state,
     phoneNumber,
-    firstName
+    firstName,
   } = req.body;
 
   try {
@@ -219,13 +221,12 @@ const editUser = async (req, res) => {
         const baseDir = path.resolve();
         const imageToRemove = existingImages[0];
         const fullPath = path.join(baseDir, imageToRemove);
-        console.log('Attempting to remove image at:', fullPath);
+        console.log("Attempting to remove image at:", fullPath);
         if (fs.existsSync(fullPath)) {
           fs.unlinkSync(fullPath);
-          console.log('Image removed successfully');
+          console.log("Image removed successfully");
         } else {
           console.log("not found");
-
         }
         existingImages.shift(); // Remove the first image
       } else if (images.length === 2) {
@@ -257,16 +258,15 @@ const editUser = async (req, res) => {
 
     if (profilePicture) {
       const baseDir = path.resolve();
-      const imageToRemove = existingUser.profilePicture
+      const imageToRemove = existingUser.profilePicture;
       if (imageToRemove) {
         const fullPath = path.join(baseDir, imageToRemove);
 
-    
         if (fs.existsSync(fullPath)) {
           fs.unlinkSync(fullPath);
         }
       }
-    
+
       // Assign new profile picture path AFTER deletion
       updatedData.profilePicture = `/uploads/${profilePicture.filename}`;
     }
@@ -278,7 +278,9 @@ const editUser = async (req, res) => {
     }
 
     // Update the user data in the database
-    const editedUser = await User.findByIdAndUpdate(id, updatedData, { new: true });
+    const editedUser = await User.findByIdAndUpdate(id, updatedData, {
+      new: true,
+    });
     if (!editedUser) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -294,7 +296,6 @@ const editUser = async (req, res) => {
 };
 
 export default editUser;
-
 
 const resendOtp = async (req, res) => {
   const { userEmail } = req.params;
@@ -330,7 +331,13 @@ const resendOtp = async (req, res) => {
       from: process.env.EMAIL_USER,
       to: userEmail,
       subject: "Resend OTP",
-      text: `Your new OTP is: ${otp}. It is valid for 10 minutes.`,
+      html: `
+    <div style="font-family: Arial, sans-serif; color: #333;">
+      <h2 style="color: #007bff;">Resend Otp</h2>
+      <p style="font-size: 24px; font-weight: bold; color: #d9534f; background: #f8d7da; padding: 10px; border-radius: 5px; display: inline-block;">
+        ${otp}
+      </p>
+    </div>`,
     };
 
     await transporter.sendMail(mailOptions);
@@ -510,7 +517,7 @@ const userLogin = async (req, res) => {
       success: true,
       userId: user._id, // Send MongoDB _id
       token: accessToken,
-      role:process.env.USER_ROLE
+      role: process.env.USER_ROLE,
     });
   } catch (err) {
     console.error("Error during login:", err);
@@ -600,40 +607,81 @@ const topMatch = async (req, res) => {
     const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const hobbiesRegex = user.hobbies
       ? user.hobbies
-        .split(",")
-        .map((hobby) => escapeRegex(hobby.trim()))
-        .join("|")
+          .split(",")
+          .map((hobby) => escapeRegex(hobby.trim()))
+          .join("|")
       : null;
     const oppositeGender =
       user.gender.toLowerCase() === "male" ? "female" : "male";
     // Use 'city' instead of 'location' and case-insensitive gender check
-    const userLocation = user.location ? user.location.trim() : '';
-    const userOccupation = user.occupation ? user.occupation.trim() : '';
-    const userMaritalStatus=user.maritalStatus?user.maritalStatus.trim():'';
-    const userEducation=user.education?user.education.trim():"";
-    const userAnnualIncome=user.annualIncome?user.annualIncome.trim():"";
+    const userLocation = user.location ? user.location.trim() : "";
+    const userOccupation = user.occupation ? user.occupation.trim() : "";
+    const userMaritalStatus = user.maritalStatus
+      ? user.maritalStatus.trim()
+      : "";
+    const userEducation = user.education ? user.education.trim() : "";
+    const userAnnualIncome = user.annualIncome ? user.annualIncome.trim() : "";
     const matchQuery = {
       $or: [
-        ...(userLocation ? [{ location: { $regex: new RegExp(`^${escapeRegex(userLocation)}$`, "i") } }] : []),
+        ...(userLocation
+          ? [
+              {
+                location: {
+                  $regex: new RegExp(`^${escapeRegex(userLocation)}$`, "i"),
+                },
+              },
+            ]
+          : []),
         ...(hobbiesRegex
           ? [{ hobbies: { $regex: hobbiesRegex, $options: "i" } }]
           : []),
-        ...(userOccupation ? [{ occupation: { $regex: new RegExp(`^${escapeRegex(userOccupation)}$`, "i") } }] : []),
-        ...(userMaritalStatus
-          ? [{ maritalStatus: { $regex: new RegExp(`^${escapeRegex(userMaritalStatus)}$`, "i") } }]
+        ...(userOccupation
+          ? [
+              {
+                occupation: {
+                  $regex: new RegExp(`^${escapeRegex(userOccupation)}$`, "i"),
+                },
+              },
+            ]
           : []),
-          ...(userEducation
-            ? [{ education: { $regex: new RegExp(`^${escapeRegex(userEducation)}$`, "i") } }]
-            : []),
-            ...(userAnnualIncome
-              ? [{ annualIncome: { $regex: new RegExp(`^${escapeRegex(userAnnualIncome)}$`, "i") } }]
-              : [])
+        ...(userMaritalStatus
+          ? [
+              {
+                maritalStatus: {
+                  $regex: new RegExp(
+                    `^${escapeRegex(userMaritalStatus)}$`,
+                    "i"
+                  ),
+                },
+              },
+            ]
+          : []),
+        ...(userEducation
+          ? [
+              {
+                education: {
+                  $regex: new RegExp(`^${escapeRegex(userEducation)}$`, "i"),
+                },
+              },
+            ]
+          : []),
+        ...(userAnnualIncome
+          ? [
+              {
+                annualIncome: {
+                  $regex: new RegExp(`^${escapeRegex(userAnnualIncome)}$`, "i"),
+                },
+              },
+            ]
+          : []),
       ],
-      gender: { $regex: new RegExp(`^${oppositeGender}$`, 'i') }, // Case-insensitive gender check
+      gender: { $regex: new RegExp(`^${oppositeGender}$`, "i") }, // Case-insensitive gender check
       _id: { $ne: user._id }, // Exclude the current user
     };
     // Find matching users
-    const matches = await User.find(matchQuery).select("firstName occupation age location hobbies gender height profilePicture maritalStatus education annualIncome");
+    const matches = await User.find(matchQuery).select(
+      "firstName occupation age location hobbies gender height profilePicture maritalStatus education annualIncome"
+    );
     if (matches.length === 0) {
       return res.status(200).json({ message: "No matches found", matches: [] });
     }
@@ -865,7 +913,6 @@ const likeProfile = async (req, res) => {
   }
 };
 
-
 const likedProfiles = async (req, res) => {
   try {
     const { likerId } = req.params;
@@ -899,15 +946,15 @@ const getComplaint = async (req, res) => {
 
 const unVerifiedUser = async (req, res) => {
   try {
-    const unverfiedUser = await User.find({ userVerified: false })
+    const unverfiedUser = await User.find({ userVerified: false });
     if (!unverfiedUser.length === 0) {
-      res.status(400).json({ message: "no unverfiedUser found" })
+      res.status(400).json({ message: "no unverfiedUser found" });
     }
-    return res.status(200).json({ unverfiedUser })
+    return res.status(200).json({ unverfiedUser });
   } catch (error) {
-    res.status(500).json({ message: "server-error" })
+    res.status(500).json({ message: "server-error" });
   }
-}
+};
 const notificationTrigger = async (req, res) => {
   const { id } = req.params;
   try {
@@ -923,12 +970,15 @@ const notificationTrigger = async (req, res) => {
 const unreadNotification = async (req, res) => {
   const { id } = req.params;
   try {
-    const notifications = await Notification.find({ receiverId: id, isRead: false });
-    res.json({ response: notifications })
+    const notifications = await Notification.find({
+      receiverId: id,
+      isRead: false,
+    });
+    res.json({ response: notifications });
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
-}
+};
 const markNotificationAsRead = async (req, res) => {
   try {
     const { id } = req.params;
@@ -940,10 +990,18 @@ const markNotificationAsRead = async (req, res) => {
     );
 
     if (!updatedNotification) {
-      return res.status(404).json({ success: false, message: "Notification not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "Notification not found" });
     }
 
-    res.status(200).json({ success: true, message: "Notification marked as read", updatedNotification });
+    res
+      .status(200)
+      .json({
+        success: true,
+        message: "Notification marked as read",
+        updatedNotification,
+      });
   } catch (error) {
     console.error("Error updating notification:", error);
     res.status(500).json({ success: false, message: "Server error" });
@@ -964,23 +1022,20 @@ const updateUserAccess = async (req, res) => {
     );
 
     if (!payment) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ message: "User not found" });
     }
 
-    res.status(200).json({ message: 'Access Granted', data: payment });
+    res.status(200).json({ message: "Access Granted", data: payment });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server Error', error: error.message });
+    res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
 
-
-
 const deleteUser = async (req, res) => {
-
   try {
     const { id } = req.params;
-    const deleteUser = await User.findByIdAndDelete(id)
+    const deleteUser = await User.findByIdAndDelete(id);
     if (!deleteUser) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -988,36 +1043,36 @@ const deleteUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Server error", error });
   }
-}
+};
 const getunlockedProfile = async (req, res) => {
   const { id } = req.body;
   try {
     const response = await User.findById(id).select("unlockedProfiles");
-    res.status(200).json({ message: 'get',data:response })
+    res.status(200).json({ message: "get", data: response });
   } catch (error) {
     res.status(500).json({ message: "Server error", error: error.message });
   }
-}
+};
 const subscriptionStatus = async (req, res) => {
-    try {
-      const { userId } = req.params;
-      if (!userId) {
-        return res.status(400).json({ message: "User ID is required" });
-      }
-      const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        { subscription: true }, // Directly setting subscription to true
-        { new: true }
-      );
-      res.json({
-        message: "Subscription updated successfully",
-        user: updatedUser,
-      });
-    } catch (error) {
-      console.error("Error updating subscription:", error);
-      res.status(500).json({ message: "Server error" });
+  try {
+    const { userId } = req.params;
+    if (!userId) {
+      return res.status(400).json({ message: "User ID is required" });
     }
-  };
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      { subscription: true }, // Directly setting subscription to true
+      { new: true }
+    );
+    res.json({
+      message: "Subscription updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    console.error("Error updating subscription:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
 export {
   registerUser,
   editUser,
@@ -1044,6 +1099,5 @@ export {
   updateUserAccess,
   deleteUser,
   getunlockedProfile,
-  subscriptionStatus
-  
+  subscriptionStatus,
 };
