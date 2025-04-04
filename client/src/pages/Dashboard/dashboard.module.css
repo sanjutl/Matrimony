@@ -963,25 +963,24 @@ a {
 
 
 
-.paymentButtonAds {
-  background: #ff5722;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  margin-top: 20px;
-  transform: scaleX(-1);
+  .paymentButtonAds {
+    background: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+    transform: scaleX(-1);
 
-}
+  }
 
-.paymentButtonAds:hover {
-  background: #e64a19;
-  transform: scale(1.05);
-
-}
+  .paymentButtonAds:hover {
+    background: #e64a19;
+    transform: scaleX(-1) scale(1.05);
+  }
 
 /* Modal Overlay */
 .modal-overlay {

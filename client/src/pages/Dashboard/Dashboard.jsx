@@ -140,7 +140,6 @@ function Dashboard() {
       console.log("error", error);
     }
   };
-  console.log("asixhayucb",topMatches);
   
   // all matches
   const AllMatches = async () => {
