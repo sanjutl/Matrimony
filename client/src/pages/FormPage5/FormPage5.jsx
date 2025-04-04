@@ -13,6 +13,7 @@ function FormPage5() {
   const [residentStatus, setResidentStatus] = useState("");
   const [form, setForm] = useState({});
   const [userProfie, setUserProfile] = useState([]);
+  const [errors,setErrors]=useState({})
   // const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -28,6 +29,16 @@ function FormPage5() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let newErrors = {};
+    if (!employmentStatus)
+      newErrors.employmentStatus = "Please select the sector Employed In";
+    if (!residentStatus)
+      newErrors.residentStatus = "Please select the Resident status";
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
     // setIsLoading(true);
     const formData = {
       ...form,
@@ -42,7 +53,7 @@ function FormPage5() {
       if (response.status === 200) {
         setTimeout(() => {
           // setIsLoading(false);
-          dispatch(setUser({ id: id ,token:token,role:role}));
+          dispatch(setUser({ id: id, token: token, role: role }));
           navigate(`/dashboard/${id}`);
         }, 3000);
       }
@@ -402,7 +413,7 @@ function FormPage5() {
                       onChange={handleChange}
                       name="education"
                     >
-                      <option>Select Your Highest Education</option>
+                      <option value="">Select Your Highest Education</option>
                       <option value="Below 10">Below 10th</option>
                       <option value="10th">10th (SSLC/Matriculation)</option>
                       <option value="12th Science">12th - Science</option>
@@ -498,7 +509,7 @@ function FormPage5() {
                       )}
                     </div>
                   </div>
-                  {/* <div className={styles.helperTextDiv}></div> */}
+                  <div className={styles.helperTextDiv}></div>
                 </div>
               </div>
               <div className={styles.formGroup}>
@@ -528,6 +539,11 @@ function FormPage5() {
                     </select>
                   </div>
                   <div className={styles.helperTextDiv}></div>
+                  {errors.employmentStatus && (
+                    <p className={styles.errorMessage}>
+                      {errors.employmentStatus}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className={styles.formGroup}>
@@ -544,7 +560,7 @@ function FormPage5() {
                       onChange={handleChange}
                       name="occupation"
                     >
-                      <option>Select Your Occupation</option>
+                      <option value="">Select Your Occupation</option>
 
                       <option value="Doctor">Doctor</option>
                       <option value="Nurse">Nurse</option>
@@ -714,7 +730,11 @@ function FormPage5() {
                       )}
                     </div>
                   </div>
-                  <div className={styles.helperTextDiv}></div>
+                  {errors.residentStatus && (
+                    <p className={styles.errorMessage}>
+                      {errors.residentStatusStatus}
+                    </p>
+                  )}
                 </div>
               </div>
               <div className={styles.btnDiv}>

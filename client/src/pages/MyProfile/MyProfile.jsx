@@ -61,8 +61,8 @@ function MyProfile() {
   return (
     <div>
       <Nav userId={userId}/>
-      <h2 className="all-match">My Profile</h2>
       <div className="profile-view-main-container">
+      <h2 className="all-match">My Profile</h2>
         <div className="profile-cards">
           <div className="image-container">
             <img

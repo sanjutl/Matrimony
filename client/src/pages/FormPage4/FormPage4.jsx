@@ -5,23 +5,19 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import baseUrl from "../../baseUrl";
-
 function FormPage4() {
   const [form, setForm] = useState({});
-
   const navigate = useNavigate();
   const [imageFile, setImageFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [userProfie, setUserProfile] = useState([]);
-
   const { id } = useSelector((state) => state.user);
  const notifyError = (message) =>
     toast.error(message, {
       autoClose: 3000,
       closeOnClick: true,
     });
-
   const notifySuccess = (message) =>
     toast.success(message, {
       autoClose: 3000,
@@ -34,7 +30,6 @@ function FormPage4() {
       [name]: value,
     }));
   };
-
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -47,7 +42,6 @@ function FormPage4() {
     if (!imageFile) return;
     const formData = new FormData();
     formData.append("profilePicture", imageFile);
-
     try {
       const response = await axios.patch(
         `${baseUrl}/api/v1/user/edit/${id}`,
@@ -59,16 +53,15 @@ function FormPage4() {
       }
     } catch (error) {
       console.log("Upload error:", error);
+      notifyError(error.response?.data?.message || "Image upload failed.");
     }
     // Close modal after upload
     setShowModal(false);
     setImageFile(null);
     setPreview(null);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
     // if (imageFile) {
     //   formData.append("profilePicture", imageFile);
@@ -77,7 +70,6 @@ function FormPage4() {
     formData.append("age", form.age || "");
     formData.append("hobbies", form.hobbies || "");
     formData.append("phoneNumber", form.phoneNumber || "");
-
     try {
       const response = await axios.patch(
         `${baseUrl}/api/v1/user/edit/${id}`,
@@ -91,12 +83,11 @@ function FormPage4() {
       if (response.status === 200) {
           notifySuccess(response.data.data.message || "Successfully Submitted.");
           setShowModal(false); // Close modal after successful upload
-        
         navigate(`/formpage5`);
       }
     } catch (error) {
       console.error(error);
-      alert("An error occurred while submitting the form.");
+     notifyError(error.response?.data?.message || "Image upload failed.");
     }
     // setShowModal(false);
     // setImageFile(null);
@@ -119,21 +110,18 @@ function FormPage4() {
         if (userProfie) {
           setForm((prevForm) => ({
             ...prevForm,
-            
             about: userProfie.about || "",
             age:userProfie.age||"",
             phoneNumber:userProfie.phoneNumber||"",
             hobbies:userProfie.hobbies||""
           }));
         }},[userProfie])
-
   return (
     <div className={styles.mainContainer}>
       <div className={styles.progressDiv}>
         <div className={styles.progressHeading}>You have completed</div>
         <div className={styles.progressHeading2}>80%</div>
       </div>
-
       <div className={styles.container}>
         {/* Main Content */}
         <div className={styles.contentDiv}>
@@ -141,17 +129,14 @@ function FormPage4() {
           {/* <div className={styles.imageDisplayDiv}>
             <img src={image} alt="Couple" className={styles.image} />
           </div> */}
-
           <div className={styles.formContainer}>
-            <h3 className={styles.formHeading}>  {userProfie.relation === "Myself" 
-  ? "About yourself" 
+            <h3 className={styles.formHeading}>  {userProfie.relation === "Myself"
+  ? "About yourself"
   : `About your ${userProfie.relation} `}
-
             </h3>
-
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.textAreaDiv}>
-                <label className={styles.leftLabel}>About your friend</label>
+                <label className={styles.leftLabel}>About</label>
                 <textarea
                   className={styles.textArea}
                   placeholder="Type here..."
@@ -161,9 +146,6 @@ function FormPage4() {
                   // required
                 ></textarea>
               </div>
-
-              
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -183,7 +165,6 @@ function FormPage4() {
                   </div>
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -232,11 +213,9 @@ function FormPage4() {
                     accept="image/*"
                     className={styles.imageUploadInput}
                     onChange={handleImageChange}
-                    // required
-                    
+                    // required={!userProfie?.profileImage}
                   />
                   <p className={styles.starHead}>*</p>
-
                 </label>
               </div>
               {showModal && (
@@ -251,7 +230,7 @@ function FormPage4() {
                         borderRadius: "10px",
                         width: "236px",
                         height: "398px",
-                        backgroundColor: " #f0c040",
+                        backgroundColor: " #F0C040",
                         cursor: "pointer",
                         overflow: "hidden",
                       }}
@@ -263,7 +242,6 @@ function FormPage4() {
                   </div>
                 </div>
               )}
-
               <div className={styles.btnDiv}>
                 <button type="submit" className={styles.submitButton}>
                   Continue
@@ -273,7 +251,6 @@ function FormPage4() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div className={styles.footer}>
         <p>Copyright © 2025. All rights reserved</p>
@@ -281,5 +258,4 @@ function FormPage4() {
     </div>
   );
 }
-
 export default FormPage4;

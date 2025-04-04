@@ -33,6 +33,7 @@
   opacity: 0;
   transform: translateX(-100px);
   transition: all ease 1s;
+  margin-top: 10px;
 }
 .trHeading h2{
   font-size: 34px;

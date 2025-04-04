@@ -5,6 +5,8 @@
   .mainContainer {
     width: 100%;
     /* margin-left: 3rem; */
+    background-image: url("../../assets//bg-pattern.jpg");
+    position:relative;
   }
   .SubContainer {
     margin-left: 5rem;
@@ -236,18 +238,11 @@
     display: grid;
     gap: 15px;
     margin: 20px 0;
-    grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
     max-width: 1600px;
     margin-bottom: 5rem;
+    place-content: center;
   }
-  /* .trContentDisplay {
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 10px; 
-    width: 100%; 
-    margin: 20px 0 20px 0;
-   
-  } */
   .TrContent {
     color: #535353;
   }
@@ -302,9 +297,6 @@
   .LikeButton {
     width: 30px;
     height: 30px;
-    /* padding: 5px 0 0 10px; */
-  
-    /* background-color: #d9d9d9; */
   }
   .likedHeartBefore {
     color: #fff;

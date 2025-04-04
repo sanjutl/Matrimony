@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import baseUrl from "../../baseUrl";
-
 function FormPage3() {
   const { id } = useSelector((state) => state.user);
   const [maritalStatus, setMaritalStatus] = useState("");
@@ -15,10 +14,15 @@ function FormPage3() {
   const [form, setForm] = useState({});
   const [userProfie, setUserProfile] = useState([]);
   const [errors, setErrors] = useState({});
-
-  
   const navigate = useNavigate();
   const handleChange = (e) => {
+    if (e.name=== "height") {
+      if (e.value < 100) {
+        setErrors("Height must be at least 100 cm.");
+      } else {
+        setErrors(""); // Clear error when valid
+      }
+    }
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -27,21 +31,17 @@ function FormPage3() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let newErrors = {};
-
     if (!maritalStatus) newErrors.maritalStatus = "Please select your marital status.";
     if (!familyStatus) newErrors.familyStatus = "Please select your family status.";
     if (!familyType) newErrors.familyType = "Please select your family type.";
     if (!familyValues) newErrors.familyValues = "Please select your family values.";
     if (!physicallyChallenged) newErrors.physicallyChallenged = "Please select an option.";
-    
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-  
     // If no errors, proceed with submission
     setErrors({});
-
     const formData = {
       ...form,
       maritalStatus,
@@ -76,7 +76,6 @@ function FormPage3() {
         {option}
       </button>
     ));
-
     const dataBinding = async () => {
       try {
         const response = await axios.get(
@@ -94,10 +93,9 @@ function FormPage3() {
       if (userProfie) {
         setForm((prevForm) => ({
           ...prevForm,
-          
           height: userProfie.height || "",
         }));
-        setMaritalStatus(userProfie.maritalStatus || ""); 
+        setMaritalStatus(userProfie.maritalStatus || "");
         setFamilyStatus(userProfie.familyStatus||"");
         setFamilyType(userProfie.familyType||"");
         setFamilyValues(userProfie.familyValues||"");
@@ -113,28 +111,23 @@ function FormPage3() {
       </div>
       <div className={styles.container}>
         {/* Progress Bar */}
-
         {/* Main Content */}
         <div className={styles.contentDiv}>
           {/* Image Section */}
-
           {/* <div className={styles.imageDisplayDiv}>
             <img
-              src={image} 
+              src={image}
               alt="Couple"
               className={styles.image}
             />
           </div> */}
-
           {/* Form Section */}
-
           <div className={styles.formContainer}>
             <h3 className={styles.formHeading}>
-            {userProfie.relation === "Myself" 
-  ? "Tell us about yourself" 
+            {userProfie.relation === "Myself"
+  ? "Tell us about yourself"
   : `Tell us about your ${userProfie.relation} basic details`}
             </h3>
-
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
                   <div className={styles.fieldGroup}>
@@ -160,7 +153,6 @@ function FormPage3() {
                     {/* <div className={styles.helperTextDiv}></div> */}
                   </div>
                 </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -176,13 +168,13 @@ function FormPage3() {
                       onChange={handleChange}
                       name="height"
                       required
+                      min="100"
                     />
                   </div>
                   {/* <div className={styles.helperTextDiv}></div>   */}
-
+                  {errors.maritalStatus && <p className={styles.errorMessage}>{errors.maritalStatus}</p>}
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -204,11 +196,9 @@ function FormPage3() {
                     </div>
                   </div>
                   {/* <div className={styles.helperTextDiv}></div> */}
-
                   {errors.familyStatus && <p className={styles.errorMessage}>{errors.familyStatus}</p>}
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -233,7 +223,6 @@ function FormPage3() {
                   <div className={styles.helperTextDiv}></div>
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -253,7 +242,6 @@ function FormPage3() {
                   {/* <div className={styles.helperTextDiv}></div> */}
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -273,7 +261,6 @@ function FormPage3() {
                   {/* <div className={styles.helperTextDiv}></div> */}
                 </div>
               </div>
-
               <div className={styles.formGroup}>
                 <div className={styles.fieldGroup}>
                   <div className={styles.labelGroup}>
@@ -293,7 +280,6 @@ function FormPage3() {
                   {/* <div className={styles.helperTextDiv}></div>   */}
                 </div>
               </div>
-
               <div className={styles.btnDiv}>
                 <button type="submit" className={styles.submitButton}>
                   Continue
@@ -304,7 +290,6 @@ function FormPage3() {
           </div>
         </div>
       </div>
-
       {/* Footer */}
       <div className={styles.footer}>
         <p>Copyright © 2025. All rights reserved</p>
@@ -312,5 +297,4 @@ function FormPage3() {
     </div>
   );
 }
-
 export default FormPage3;
