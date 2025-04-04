@@ -1,3 +1,3 @@
-const baseUrl=`http://localhost:8000`;
+const baseUrl=`http://ukezhavamatrimony.com`;
 export default baseUrl;
     
