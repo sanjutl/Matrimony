@@ -587,18 +587,15 @@ const refreshAccessToken = async (req, res) => {
 };
 const topMatch = async (req, res) => {
   const { id } = req.params;
-
   if (!id) {
     return res.status(400).json({ message: "User ID is required" });
   }
-
   try {
     // Find the user by ID
     const user = await User.findById(id);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
-
     // Prepare regex for hobbies
     const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const hobbiesRegex = user.hobbies
@@ -607,52 +604,53 @@ const topMatch = async (req, res) => {
         .map((hobby) => escapeRegex(hobby.trim()))
         .join("|")
       : null;
-
     const oppositeGender =
       user.gender.toLowerCase() === "male" ? "female" : "male";
-
     // Use 'city' instead of 'location' and case-insensitive gender check
-    const userCity = user.city ? user.city.trim() : '';
+    const userLocation = user.location ? user.location.trim() : '';
     const userOccupation = user.occupation ? user.occupation.trim() : '';
     const userMaritalStatus=user.maritalStatus?user.maritalStatus.trim():'';
+    const userEducation=user.education?user.education.trim():"";
+    const userAnnualIncome=user.annualIncome?user.annualIncome.trim():"";
     const matchQuery = {
       $or: [
-        ...(userCity ? [{ city: { $regex: new RegExp(`^${escapeRegex(userCity)}$`, "i") } }] : []),
+        ...(userLocation ? [{ location: { $regex: new RegExp(`^${escapeRegex(userLocation)}$`, "i") } }] : []),
         ...(hobbiesRegex
           ? [{ hobbies: { $regex: hobbiesRegex, $options: "i" } }]
           : []),
         ...(userOccupation ? [{ occupation: { $regex: new RegExp(`^${escapeRegex(userOccupation)}$`, "i") } }] : []),
         ...(userMaritalStatus
           ? [{ maritalStatus: { $regex: new RegExp(`^${escapeRegex(userMaritalStatus)}$`, "i") } }]
-          : [])
-        
+          : []),
+          ...(userEducation
+            ? [{ education: { $regex: new RegExp(`^${escapeRegex(userEducation)}$`, "i") } }]
+            : []),
+            ...(userAnnualIncome
+              ? [{ annualIncome: { $regex: new RegExp(`^${escapeRegex(userAnnualIncome)}$`, "i") } }]
+              : [])
       ],
       gender: { $regex: new RegExp(`^${oppositeGender}$`, 'i') }, // Case-insensitive gender check
       _id: { $ne: user._id }, // Exclude the current user
     };
-
     // Find matching users
-    const matches = await User.find(matchQuery).select(
-      "firstName occupation age city hobbies gender height profilePicture maritalStatus"
-    );
-
+    const matches = await User.find(matchQuery).select("firstName occupation age location hobbies gender height profilePicture maritalStatus education annualIncome");
     if (matches.length === 0) {
       return res.status(200).json({ message: "No matches found", matches: [] });
     }
-
     // Format the response with matched users
     const response = matches.map((match) => ({
       name: match.firstName,
       id: match._id,
       occupation: match.occupation,
       age: match.age,
-      city: match.city,
+      location: match.location,
       hobbies: match.hobbies,
       height: match.height,
       profilePicture: match.profilePicture,
-      maritalStatus:match.maritalStatus
+      maritalStatus: match.maritalStatus,
+      education: match.education,
+      annualIncome: match.annualIncome,
     }));
-
     res.status(200).json({ message: "Matches found", matches: response });
   } catch (err) {
     res
