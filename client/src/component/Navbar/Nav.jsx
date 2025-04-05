@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./nav.css";
 import axios from "axios";
 import { io } from "socket.io-client";
 import { Link, useNavigate } from "react-router-dom";
 import baseUrl from "../../baseUrl";
+import likeNotification from '../../assets/LikeSound.mp3';
+
 const socket = io(`${baseUrl}`, {
   transports: ["websocket", "polling"],
   withCredentials: true,
@@ -14,13 +16,40 @@ function Nav({ userId }) {
   const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const [selectedSenderId, setSelectedSenderId] = useState(null);
+  const audioRef  = useRef(null);
+  const [audioAllowed, setAudioAllowed] = useState(false);
+  
+  useEffect(() => {
+    audioRef.current = new Audio(likeNotification);
+  }, []);
+  
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      if (!audioAllowed) {
+        setAudioAllowed(true);
+        document.removeEventListener('click', handleUserInteraction);
+      }
+    };
+
+    document.addEventListener('click', handleUserInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleUserInteraction);
+    };
+  }, [audioAllowed]);
+  useEffect(() => {
+    const audio = new Audio(likeNotification);
+    audio.volume = 0.5;
+    audio.preload = "auto";
+    audioRef.current = audio;
+  }, []);
   useEffect(() => {
     if (!userId) return;
-
+  
     socket.emit("registerUser", userId);
-
+  
     let timeoutId;
-
+  
     const fetchNotifications = async () => {
       try {
         const { data } = await axios.get(
@@ -33,43 +62,53 @@ function Nav({ userId }) {
         timeoutId = setTimeout(fetchNotifications, 10000);
       }
     };
-
-    // Initial fetch
+  
     fetchNotifications();
-
+  
     const handleNotification = (newNotification) => {
       setNotifications((prev) => {
         const exists = prev.some((n) => n._id === newNotification._id);
         return exists ? prev : [newNotification, ...prev];
       });
+  
+      if (audioRef.current && audioAllowed) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+        audioRef.current
+          .play()
+          .catch((err) =>
+            console.warn("Retrying audio due to error:", err)
+          );
+      }
     };
-
+  
     socket.on("receiveNotification", handleNotification);
-
+  
     return () => {
       socket.off("receiveNotification", handleNotification);
-      clearTimeout(timeoutId); // Clear interval on unmount
+      clearTimeout(timeoutId);
     };
-  }, [userId]);
+  }, [userId, audioAllowed]);
+  
 
   const hasUnreadMessages = notifications.some((item) => !item.notified);
 
   const hideAlert = async (id, senderId) => {
     try {
-      await axios.patch(
-        `${baseUrl}/api/v1/user/notificationPreview/${id}`
-      );
+      await axios.patch(`${baseUrl}/api/v1/user/notificationPreview/${id}`);
       setSelectedSenderId(senderId);
       navigate(`/mainuser/${senderId}`);
     } catch (error) {
       console.error("Error handling notification:", error);
     }
-  };  
+  };
+
   useEffect(() => {
     if (selectedSenderId) {
       window.location.reload();
     }
   }, [selectedSenderId]);
+
   return (
     <div>
       <header className="Prof-header7">
@@ -98,8 +137,8 @@ function Nav({ userId }) {
             className="icon-button7"
             onClick={() => setShowNotifications((prev) => !prev)}
           >
-            <span className="material-symbols-outlined ">notifications</span>
-            <h6 className="NavText"> Notification</h6>
+            <span className="material-symbols-outlined">notifications</span>
+            <h6 className="NavText">Notification</h6>
             {hasUnreadMessages && <div className="notification-alert"></div>}
             {showNotifications && (
               <div className="notification-dropdown">
@@ -108,9 +147,6 @@ function Nav({ userId }) {
                     <div
                       key={notification._id}
                       className="notification-item"
-                      // onClick={() => {
-                      //   navigate(`/mainuser/${notification.senderId}`);
-                      // }}
                       onClick={() =>
                         hideAlert(notification._id, notification.senderId)
                       }
@@ -127,12 +163,6 @@ function Nav({ userId }) {
         </div>
       </header>
       <hr className="divider7" />
-      {/* <div className="content">
-        <div className="match-buttons">
-          <button className="btn outlined">Regular</button>
-          <button className="btn outlined">Premium</button>
-        </div>
-      </div> */}
 
       <link
         rel="stylesheet"

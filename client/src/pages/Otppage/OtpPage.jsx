@@ -6,14 +6,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { setVerified } from "../../features/slice";
 import baseUrl from "../../baseUrl";
 import { ToastContainer,toast } from "react-toastify";
+import toastNotification from '../../assets/ToastAudio.mp3';
+
 
 const OtpPage = () => {
   const navigate = useNavigate();
  // Get userEmail from the previous page
   const [form, setForm] = useState({ otp: "" });
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("")
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+      const notificationSound=new Audio(toastNotification);
+  
   const dispatch = useDispatch();
   const { id, userEmail } = useSelector((state) => state.user);
   
@@ -53,6 +57,9 @@ const OtpPage = () => {
       }
     } catch (err) {
       console.error("OTP Verification Error:", err);
+      notificationSound.play().catch((err) =>
+        console.warn("Audio play error:", err)
+      );
       toast.error(err.response?.data?.message || "Failed to verify OTP.");
       setMessage("");
       setError(err.response?.data?.message || "Failed to verify OTP.");
@@ -71,7 +78,9 @@ const OtpPage = () => {
       
     } catch (err) {
       toast.success("Failed to resend OTP. Please try again.");
-
+      notificationSound.play().catch((err) =>
+        console.warn("Audio play error:", err)
+      );
       setError("Failed to resend OTP. Please try again.");
     }
   };

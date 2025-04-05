@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
 import baseUrl from "../../baseUrl";
 import Loader from "../../component/Loader/Loadertext"
+import toastNotification from '../../assets/ToastAudio.mp3';
+
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -22,6 +24,8 @@ function LoginPage() {
   const notifySuccess = (message) => toast.success(message);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+    const notificationSound=new Audio(toastNotification);
+  
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -49,6 +53,10 @@ function LoginPage() {
         });
       }
     } catch (error) {
+      notificationSound.play().catch((err) =>
+        console.warn("Audio play error:", err)
+      );
+      //  toast.error(error.response?.data?.message);
       setErrorMessage(
         error.response?.data?.message || "Please try again."
       );

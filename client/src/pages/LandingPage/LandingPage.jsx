@@ -9,6 +9,7 @@ import { setUser } from "../../features/slice";
 import Modal from "react-modal";
 import BounceLoader from "react-spinners/BounceLoader";
 import baseUrl from "../../baseUrl";
+import toastNotification from '../../assets/ToastAudio.mp3'
 
 
 function LandingPage() {
@@ -22,6 +23,7 @@ function LandingPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
+  const notificationSound=new Audio(toastNotification);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -51,7 +53,10 @@ function LandingPage() {
         });
       }
     } catch (error) {
-      notifyError(error.response?.data?.message);
+      notificationSound.play().catch((err) =>
+        console.warn("Audio play error:", err)
+      );
+      toast.error(error.response?.data?.message);
     }
   };
   const handleSignin = async (e) => {
@@ -67,13 +72,17 @@ function LandingPage() {
         const userId = response.data.userId;
         navigate(`/dashboard/${userId}`);
       }
-    } catch (error) {
-      setErrorMessage(
-        error.response?.data?.message ||
-          "Invalid email or password. Please try again."
+    } 
+    catch (error) {
+      const message =
+        error.response?.data?.message || "Invalid email or password. Please try again.";
+      setErrorMessage(message);
+      notificationSound.play().catch((err) =>
+        console.warn("Audio play error:", err)
       );
-      notifyError(error.response?.data?.message);
+      toast.error(message); // Show toast
     }
+    
   };
 
   const handleChange = (e) => {
@@ -176,6 +185,12 @@ function LandingPage() {
         rel="stylesheet"
       />
       </div>
+      {/* <ToastContainer
+  position="bottom-right"
+  autoClose={3000}
+  style={{ zIndex: 9999 }}
+/> */}
+
     </div>
   );
 }
