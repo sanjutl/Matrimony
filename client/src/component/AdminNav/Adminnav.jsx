@@ -1,24 +1,21 @@
 import React from "react";
 import "./adminnav.css";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
+  const navigate=useNavigate()
   return (
     <div>
       <header className="Prof-header">
         <div className="Prof-header-left">
-          <button className="icon-button">
+          <button className="icon-button" onClick={() => navigate(`/Admindashboard`)}>
             <span className="material-symbols-outlined">home</span>
             <span className="matches-text">
               <h6>Home</h6>
             </span>
           </button>
 
-          <button className="icon-button">
-            <span className="material-symbols-outlined">notifications</span>
-            <span className="matches-text">
-              <h6>Notification</h6>
-            </span>
-          </button>
+          
         </div>
 
         {/* <div className="image-upload-icon">

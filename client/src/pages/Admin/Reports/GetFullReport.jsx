@@ -4,7 +4,7 @@ import Profilebox from "../components/ReportComponent.jsx";
 import "./GetFullReport.css"
 import Pagination from "../components/PaginationAdmin"
 import baseUrl from '../../../baseUrl.js';
-
+import Nav from '../../../component/AdminNav/Adminnav.jsx';
 function GetFullReport() {
   const [userData, setUserData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1)
@@ -31,6 +31,7 @@ function GetFullReport() {
   if (!fetchUserData) return (<div>loading...</div>)
   return (
     <div>
+      <Nav/>
       <div className="user-page-main">
         <h1>Reported Users</h1>
         {userData.length > 0 ? (

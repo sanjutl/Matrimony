@@ -4,6 +4,7 @@ import Profilebox from '../components/Profilebox';
 import "./userpage.css"
 import Pagination from "../components/PaginationAdmin"
 import baseUrl from '../../../baseUrl';
+import Nav from '../../../component/AdminNav/Adminnav';
 
 function GetFullUser() {
   const [userData, setUserData] = useState([]);
@@ -31,6 +32,7 @@ function GetFullUser() {
   if (!fetchUserData) return (<div>loading...</div>)
   return (
     <div>
+      <Nav />
       <div className="user-page-main">
         <h1>All Users</h1>
         {userData.length > 0 ? (

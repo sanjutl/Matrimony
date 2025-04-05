@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./nav.css";
 import axios from "axios";
 import { io } from "socket.io-client";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import baseUrl from "../../baseUrl";
-import likeNotification from '../../assets/LikeSound.mp3';
+import likeNotification from "../../assets/LikeSound.mp3";
 
 const socket = io(`${baseUrl}`, {
   transports: ["websocket", "polling"],
@@ -16,38 +16,29 @@ function Nav({ userId }) {
   const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const [selectedSenderId, setSelectedSenderId] = useState(null);
-  const audioRef  = useRef(null);
-  const [audioAllowed, setAudioAllowed] = useState(false);
-  
+  const notificationAudio = useRef(new Audio(likeNotification));
+
   useEffect(() => {
-    audioRef.current = new Audio(likeNotification);
-  }, []);
+    notificationAudio.current.volume = 1.0;
+    notificationAudio.current.muted = false;
   
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      if (!audioAllowed) {
-        setAudioAllowed(true);
-        document.removeEventListener('click', handleUserInteraction);
-      }
+    const unlockAudio = () => {
+      notificationAudio.current.play().catch(() => {});
+      notificationAudio.current.pause();
+      document.removeEventListener("click", unlockAudio);
     };
-
-    document.addEventListener('click', handleUserInteraction);
-
+  
+    document.addEventListener("click", unlockAudio);
+  
     return () => {
-      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener("click", unlockAudio);
     };
-  }, [audioAllowed]);
-  useEffect(() => {
-    const audio = new Audio(likeNotification);
-    audio.volume = 0.5;
-    audio.preload = "auto";
-    audioRef.current = audio;
   }, []);
+  
   useEffect(() => {
     if (!userId) return;
   
     socket.emit("registerUser", userId);
-  
     let timeoutId;
   
     const fetchNotifications = async () => {
@@ -55,32 +46,50 @@ function Nav({ userId }) {
         const { data } = await axios.get(
           `${baseUrl}/api/v1/user/unread/${userId}`
         );
-        setNotifications(Array.isArray(data?.response) ? data.response : []);
+    
+        const newNotifications = Array.isArray(data?.response) ? data.response : [];
+        setNotifications((prev) => {
+          const prevIds = new Set(prev.map((n) => n._id));
+          const unseen = newNotifications.filter(
+            (n) => !prevIds.has(n._id) && !n.notified
+          );
+    
+          if (unseen.length > 0) {
+            notificationAudio.current
+              .play()
+              .catch((err) => console.error("🔇 Audio play error:", err));
+          }
+    
+          return newNotifications;
+        });
       } catch (error) {
         setNotifications([]);
       } finally {
-        timeoutId = setTimeout(fetchNotifications, 10000);
+        timeoutId = setTimeout(fetchNotifications, 10000); // Poll every 10s
       }
     };
+    
   
     fetchNotifications();
   
     const handleNotification = (newNotification) => {
+      console.log("🔔 Notification received:", newNotification);
+    
       setNotifications((prev) => {
         const exists = prev.some((n) => n._id === newNotification._id);
-        return exists ? prev : [newNotification, ...prev];
+        if (!exists) {
+          if (!newNotification.notified) {
+            notificationAudio.current.play().catch((err) =>
+              console.error("🔇 Audio play error:", err)
+            );
+          }
+          return [newNotification, ...prev];
+        }
+        return prev;
       });
-  
-      if (audioRef.current && audioAllowed) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-        audioRef.current
-          .play()
-          .catch((err) =>
-            console.warn("Retrying audio due to error:", err)
-          );
-      }
     };
+
+    
   
     socket.on("receiveNotification", handleNotification);
   
@@ -88,9 +97,8 @@ function Nav({ userId }) {
       socket.off("receiveNotification", handleNotification);
       clearTimeout(timeoutId);
     };
-  }, [userId, audioAllowed]);
+  }, [userId]);
   
-
   const hasUnreadMessages = notifications.some((item) => !item.notified);
 
   const hideAlert = async (id, senderId) => {
