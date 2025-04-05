@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../LandingPage/landingpage.css";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
 import Modal from "react-modal";
-import BounceLoader from "react-spinners/BounceLoader";
 import baseUrl from "../../baseUrl";
+import Loader from "../../component/Loader/Loadertext.jsx";
 
 
 function LandingPage() {
@@ -29,7 +29,7 @@ function LandingPage() {
 
   const notifyError = (message) => toast.error(message);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [emailResendTimer, setEmailResendTimer] = useState(0);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleEmail = (e) => {
@@ -37,32 +37,46 @@ function LandingPage() {
   };
   const submitEmail = async (e) => {
     e.preventDefault();
-    setIsLoading(true); 
+    setIsLoading(true);
+    setEmailResendTimer(10);
     try {
       const response = await axios.post(
         `${baseUrl}/api/v1/user/forgotpassworduser`,
         { userEmail: email }
       );
       if (response.status === 200) {
-    setIsLoading(false); 
-
-        toast.success("Password reset link sent to registered mail ID", {
-          onClose: () => setIsModalOpen(false),
+        toast.success("Password reset link sent to registered mail ID",{
+          onClose:()=>setIsModalOpen(false)
         });
+        
       }
     } catch (error) {
       notifyError(error.response?.data?.message);
+    } finally {
+      setIsLoading(false);
     }
   };
+  useEffect(() => {
+    let interval = null;
+    if (emailResendTimer > 0) {
+      interval = setInterval(() => {
+        setEmailResendTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [emailResendTimer]);
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${baseUrl}/api/v1/user/login`,
-        form
-      );
+      const response = await axios.post(`${baseUrl}/api/v1/user/login`, form);
       if (response) {
-        dispatch(setUser({ id: response.data.userId ,token:response.data.token,role:response.data.role})); // Dispatch Redux action
+        dispatch(
+          setUser({
+            id: response.data.userId,
+            token: response.data.token,
+            role: response.data.role,
+          })
+        ); // Dispatch Redux action
         localStorage.setItem("userId", response.data.userId);
         const userId = response.data.userId;
         navigate(`/dashboard/${userId}`);
@@ -84,16 +98,17 @@ function LandingPage() {
   };
 
   return (
-    <div>
+    <div> 
       <div className="landing-main-container">
-      {isLoading && <div className="loader"><BounceLoader color="#f8cb58" /> </div>}
-        {/* Left section text */}
+        {isLoading && (
+          <div className="loader">
+            <Loader />{" "}
+          </div>
+        )}
         <div className="landing-text-container">
           <h1>Ezhava Matrimony</h1>
           <p>Find Your Perfect Match in the Ezhava Community</p>
         </div>
-
-        {/* Right section form */}
         <div className="landing-form-container">
           <div className="landing-form-header">
             <h3>Login to your Profile</h3>
@@ -144,19 +159,42 @@ function LandingPage() {
               className="modal-content"
               overlayClassName="modal-overlay"
             >
-              <h2>Forgot Password</h2>
-              <p>Enter your email to receive a reset link.</p>
+              <div style={{ position: "relative" }}>
+                {isLoading && (
+                  <div className="modal-loader-overlay">
+                    <div className="loader-div">
+                      <Loader />{" "}
+                    </div>
+                  </div>
+                )}
 
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                value={email}
-                onChange={handleEmail}
-              />
+                <h2>Forgot Password</h2>
+                <p>Enter your email to receive a reset link.</p>
 
-              <button onClick={submitEmail}>Submit</button>
-              <button onClick={() => setIsModalOpen(false)}>Close</button>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  value={email}
+                  onChange={handleEmail}
+                  disabled={isLoading}
+                />
+
+                <button
+                  onClick={submitEmail}
+                  disabled={isLoading || emailResendTimer > 0}
+                >
+                  {emailResendTimer > 0
+                    ? `Resend available in ${emailResendTimer}s`
+                    : "Submit"}
+                </button>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  disabled={isLoading}
+                >
+                  Close
+                </button>
+              </div>
             </Modal>
             <div className="adminLogin">
               <Link className="signup-link" to="/adminLanding">
@@ -172,9 +210,9 @@ function LandingPage() {
           </form>
         </div>
         <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"
-      />
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </div>
     </div>
   );
