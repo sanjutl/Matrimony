@@ -104,16 +104,7 @@ function App() {
           <Route path="/payment-success/" element={<PaymentSuccess />} />
         </Routes>
 
-        <ToastContainer
-          position="bottom-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          pauseOnHover
-        />
+        
       </BrowserRouter>
     </div>
   );

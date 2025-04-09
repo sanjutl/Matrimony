@@ -7,6 +7,9 @@ body {
 
   background: url("../../assets/loginImage.jpg") no-repeat center center/cover;
   height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .main-container {
   position: relative;

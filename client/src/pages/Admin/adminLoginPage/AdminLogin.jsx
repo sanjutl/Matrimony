@@ -99,14 +99,7 @@ function AdminLogin() {
   };
   return (
     <div className="mainAdmin">
-      <div className="landing-main-container">
-        {isLoading && (
-          <div className="loader">
-            <Loader/>{" "}
-          </div>
-        )}
-
-        <ToastContainer
+      <ToastContainer
           position="bottom-right"
           autoClose={2000}
           hideProgressBar={false}
@@ -116,6 +109,14 @@ function AdminLogin() {
           pauseOnFocusLoss
           pauseOnHover
         />
+      <div className="landing-main-container">
+        {isLoading && (
+          <div className="loader">
+            <Loader/>{" "}
+          </div>
+        )}
+
+        
         {/* Left section text */}
         <div className="landing-text-container">
           <h1>Ezhava Matrimony</h1>

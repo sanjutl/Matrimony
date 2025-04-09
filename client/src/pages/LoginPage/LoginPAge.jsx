@@ -68,9 +68,7 @@ function LoginPage() {
 
   return (
     <div className="mainlanding">
-      <div className="main-container">
-      
-        <ToastContainer
+      <ToastContainer
           position="bottom-right"
           autoClose={2000}
           hideProgressBar={false}
@@ -80,6 +78,9 @@ function LoginPage() {
           pauseOnFocusLoss
           pauseOnHover
         />
+      <div className="main-container">
+      
+        
         {/* Left section text */}
       
       

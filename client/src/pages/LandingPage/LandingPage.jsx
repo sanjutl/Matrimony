@@ -224,11 +224,11 @@ function LandingPage() {
           rel="stylesheet"
           />
       </div>
-      {/* <ToastContainer
+      <ToastContainer
   position="bottom-right"
   autoClose={3000}
   style={{ zIndex: 9999 }}
-  /> */}
+  />
 
   <FooterFront/>
     </div>

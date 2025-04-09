@@ -6,7 +6,9 @@ body {
   .mainAdmin{
     background: url("../../../assets/loginImage.jpg") no-repeat center center/cover;
     height: 100vh;
-
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   }
   .landing-main-container {
     position: relative;
