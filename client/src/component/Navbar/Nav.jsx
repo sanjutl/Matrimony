@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./nav.css";
 import axios from "axios";
 import { io } from "socket.io-client";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import baseUrl from "../../baseUrl";
 import likeNotification from '../../assets/LikeSound.mp3';
 
@@ -16,40 +16,76 @@ function Nav({ userId }) {
   const [notifications, setNotifications] = useState([]);
   const [showNotifications, setShowNotifications] = useState(false);
   const [selectedSenderId, setSelectedSenderId] = useState(null);
-  const audioRef  = useRef(null);
-  const [audioAllowed, setAudioAllowed] = useState(false);
-  
-  useEffect(() => {
-    audioRef.current = new Audio(likeNotification);
-  }, []);
-  
-  useEffect(() => {
-    const handleUserInteraction = () => {
-      if (!audioAllowed) {
-        setAudioAllowed(true);
-        document.removeEventListener('click', handleUserInteraction);
-      }
-    };
+  const audioRef = useRef(null);
+  const [audioInitialized, setAudioInitialized] = useState(false);
 
-    document.addEventListener('click', handleUserInteraction);
-
-    return () => {
-      document.removeEventListener('click', handleUserInteraction);
-    };
-  }, [audioAllowed]);
+  // Initialize audio once
   useEffect(() => {
     const audio = new Audio(likeNotification);
     audio.volume = 0.5;
     audio.preload = "auto";
     audioRef.current = audio;
+    setAudioInitialized(true);
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
   }, []);
+
+  // Handle notification sound playback
+  const playNotificationSound = () => {
+    if (!audioRef.current) return;
+    
+    try {
+      // Create a new audio context if needed (helps with some browser restrictions)
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Audio played successfully");
+          })
+          .catch(error => {
+            console.warn("Audio play failed, attempting user gesture workaround:", error);
+            // Create a hidden button that user can click to enable sounds
+            const enableSoundButton = document.createElement('button');
+            enableSoundButton.style.display = 'none';
+            enableSoundButton.textContent = 'Enable Notification Sounds';
+            enableSoundButton.onclick = () => {
+              audioRef.current.play()
+                .then(() => {
+                  document.body.removeChild(enableSoundButton);
+                  console.log("Audio played after user gesture");
+                })
+                .catch(e => console.warn("Fallback play failed:", e));
+            };
+            document.body.appendChild(enableSoundButton);
+            enableSoundButton.click();
+          });
+      }
+    } catch (err) {
+      console.warn("Audio playback error:", err);
+    }
+  };
+
   useEffect(() => {
-    if (!userId) return;
-  
+    if (!userId || !audioInitialized) return;
+
     socket.emit("registerUser", userId);
-  
+
     let timeoutId;
-  
+
     const fetchNotifications = async () => {
       try {
         const { data } = await axios.get(
@@ -62,34 +98,28 @@ function Nav({ userId }) {
         timeoutId = setTimeout(fetchNotifications, 10000);
       }
     };
-  
+
     fetchNotifications();
-  
+
     const handleNotification = (newNotification) => {
       setNotifications((prev) => {
         const exists = prev.some((n) => n._id === newNotification._id);
-        return exists ? prev : [newNotification, ...prev];
+        if (!exists) {
+          // Play sound when new notification arrives
+          playNotificationSound();
+          return [newNotification, ...prev];
+        }
+        return prev;
       });
-  
-      if (audioRef.current && audioAllowed) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
-        audioRef.current
-          .play()
-          .catch((err) =>
-            console.warn("Retrying audio due to error:", err)
-          );
-      }
     };
-  
+
     socket.on("receiveNotification", handleNotification);
-  
+
     return () => {
       socket.off("receiveNotification", handleNotification);
       clearTimeout(timeoutId);
     };
-  }, [userId, audioAllowed]);
-  
+  }, [userId, audioInitialized]);
 
   const hasUnreadMessages = notifications.some((item) => !item.notified);
 
@@ -163,7 +193,6 @@ function Nav({ userId }) {
         </div>
       </header>
       <hr className="divider7" />
-
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"

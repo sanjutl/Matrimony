@@ -3,12 +3,14 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
-  
+  .mainLanding{
+    height: 100vh;
+    background: url("../../assets/loginImage.jpg") no-repeat center center/cover;
+
+  }
   .landing-main-container {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background: url("../../assets/pexels-weddingphotography-1444442.jpg") no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: space-evenly;

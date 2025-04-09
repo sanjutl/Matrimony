@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import "react-toastify/dist/ReactToastify.css";
 import BounceLoader from "react-spinners/BounceLoader";
 import baseUrl from "../../../baseUrl";
+import FooterFront from "../../../component/FooterFront/FooterFront";
 
 function AdminLogin() {
   let field = {
@@ -84,7 +85,7 @@ function AdminLogin() {
     }
   };
   return (
-    <div>
+    <div className="mainAdmin">
       <div className="landing-main-container">
       {isLoading && <div className="loader"><BounceLoader color="#f8cb58" /> </div>}
 
@@ -179,6 +180,7 @@ function AdminLogin() {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
+      <FooterFront/>
     </div>
   );
 }

@@ -238,10 +238,8 @@
     display: grid;
     gap: 15px;
     margin: 20px 0;
+    place-items: center;
     grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
-    max-width: 1600px;
-    margin-bottom: 5rem;
-    place-content: center;
   }
   .TrContent {
     color: #535353;

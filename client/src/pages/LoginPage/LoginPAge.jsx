@@ -9,7 +9,7 @@ import { setUser } from "../../features/slice";
 import baseUrl from "../../baseUrl";
 import Loader from "../../component/Loader/Loadertext"
 import toastNotification from '../../assets/ToastAudio.mp3';
-
+import FooterFront from "../../component/FooterFront/FooterFront";
 
 function LoginPage() {
   const [form, setForm] = useState({
@@ -67,7 +67,7 @@ function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="mainlanding">
       <div className="main-container">
       
         <ToastContainer
@@ -133,6 +133,7 @@ function LoginPage() {
           </form>
         </div>
       </div>
+      <FooterFront/>
     </div>
   );
 }

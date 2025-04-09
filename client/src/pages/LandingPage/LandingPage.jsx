@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import BounceLoader from "react-spinners/BounceLoader";
 import baseUrl from "../../baseUrl";
 import toastNotification from '../../assets/ToastAudio.mp3'
+import FooterFront from "../../component/FooterFront/FooterFront";
 
 
 function LandingPage() {
@@ -93,7 +94,7 @@ function LandingPage() {
   };
 
   return (
-    <div>
+    <div className="mainLanding">
       <div className="landing-main-container">
       {isLoading && <div className="loader"><BounceLoader color="#f8cb58" /> </div>}
         {/* Left section text */}
@@ -179,18 +180,19 @@ function LandingPage() {
               </Link>
             </div>
           </form>
-        </div>
+</div>
         <link
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
-      />
+        />
       </div>
       {/* <ToastContainer
   position="bottom-right"
   autoClose={3000}
   style={{ zIndex: 9999 }}
-/> */}
+  /> */}
 
+  <FooterFront/>
     </div>
   );
 }
