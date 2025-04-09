@@ -5,6 +5,8 @@ import Profilebox from "./ProfileComponent";
 import Pagination from "../components/PaginationAdmin";
 import "./GetFullProfile.css";
 import baseUrl from "../../../baseUrl";
+import Nav from "../../../component/AdminNav/Adminnav";
+
 
 function GetFullProfile() {
   const [userData, setUserData] = useState([]);
@@ -31,6 +33,7 @@ function GetFullProfile() {
   if (!fetchUserData) return <div>loading...</div>;
   return (
     <div>
+      <Nav/>
       <div className="getfullprofile-main">
         <h1>All Unverified Users</h1>
         {userData.length > 0 ? (

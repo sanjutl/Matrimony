@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./adminlogin.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,7 +8,8 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../../features/slice";
 import Modal from "react-modal";
 import "react-toastify/dist/ReactToastify.css";
-import BounceLoader from "react-spinners/BounceLoader";
+import Loader from "../../../component/Loader/Loadertext"
+
 import baseUrl from "../../../baseUrl";
 import FooterFront from "../../../component/FooterFront/FooterFront";
 
@@ -22,15 +23,15 @@ function AdminLogin() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState(field);
   const [errorMessage, setErrorMessage] = useState("");
+  const [emailResendTimer, setEmailResendTimer] = useState(0);
+
   const notifyError = (message) => toast.error(message);
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
-
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
-
 
   const navigate = useNavigate();
   const handleEmail = (e) => {
@@ -44,35 +45,47 @@ function AdminLogin() {
   };
   const submitEmail = async (e) => {
     e.preventDefault();
-    setIsLoading(true); 
+    setIsLoading(true);
 
     try {
       const response = await axios.post(
-        `${baseUrl}/api/v1/admin/forgotpasswordadmin`,{ userEmail: email }
+        `${baseUrl}/api/v1/admin/forgotpasswordadmin`,
+        { userEmail: email }
       );
       if (response.status === 200) {
-    setIsLoading(false); 
-
         toast.success("Password reset link sent to registered mail ID", {
           onClose: () => setIsModalOpen(false),
         });
       }
     } catch (error) {
-      
       notifyError(error.response?.data?.message);
+    }finally {
+      setIsLoading(false);
     }
   };
+  useEffect(() => {
+    let interval = null;
+    if (emailResendTimer > 0) {
+      interval = setInterval(() => {
+        setEmailResendTimer((prev) => prev - 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [emailResendTimer]);
   const handleSignin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `${baseUrl}/api/v1/admin/login`,
-        form
-      );
+      const response = await axios.post(`${baseUrl}/api/v1/admin/login`, form);
       if (response) {
         navigate(`/Admindashboard`);
         console.log(response.data);
-        dispatch(setUser({ id: response.data.userId ,token:response.data.token,role:Number(response.data.role)})); // Dispatch Redux action
+        dispatch(
+          setUser({
+            id: response.data.userId,
+            token: response.data.token,
+            role: Number(response.data.role),
+          })
+        ); // Dispatch Redux action
       }
     } catch (error) {
       console.log(error);
@@ -87,7 +100,11 @@ function AdminLogin() {
   return (
     <div className="mainAdmin">
       <div className="landing-main-container">
-      {isLoading && <div className="loader"><BounceLoader color="#f8cb58" /> </div>}
+        {isLoading && (
+          <div className="loader">
+            <Loader/>{" "}
+          </div>
+        )}
 
         <ToastContainer
           position="bottom-right"
@@ -125,16 +142,16 @@ function AdminLogin() {
               />
             </label>
             <label>
-            <div className="password-container">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="password"
-                required
-                value={form.Password}
-                onChange={handleChange}
-              />
-               <span
+              <div className="password-container">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  placeholder="password"
+                  required
+                  value={form.Password}
+                  onChange={handleChange}
+                />
+                <span
                   className="password-toggle"
                   onClick={togglePasswordVisibility}
                 >
@@ -159,19 +176,42 @@ function AdminLogin() {
               className="modal-content"
               overlayClassName="modal-overlay"
             >
-              <h2>Forgot Password</h2>
-              <p>Enter your email to receive a reset link.</p>
+              <div style={{ position: "relative" }}>
+                {isLoading && (
+                  <div className="modal-loader-overlay">
+                    <div className="loader-div">
+                      <Loader />{" "}
+                    </div>
+                  </div>
+                )}
 
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                value={email}
-                onChange={handleEmail}
-              />
+                <h2>Forgot Password</h2>
+                <p>Enter your email to receive a reset link.</p>
 
-              <button onClick={submitEmail}>Submit</button>
-              <button onClick={() => setIsModalOpen(false)}>Close</button>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  value={email}
+                  onChange={handleEmail}
+                  disabled={isLoading}
+                />
+
+                <button
+                  onClick={submitEmail}
+                  disabled={isLoading || emailResendTimer > 0}
+                >
+                  {emailResendTimer > 0
+                    ? `Resend available in ${emailResendTimer}s`
+                    : "Submit"}
+                </button>
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  disabled={isLoading}
+                >
+                  Close
+                </button>
+              </div>
             </Modal>
           </form>
         </div>
