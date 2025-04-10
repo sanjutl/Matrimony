@@ -243,6 +243,9 @@
   }
   .TrContent {
     color: #535353;
+  padding-top: 10px;
+
+    
   }
   .trCard {
     border-radius: 10px;
@@ -250,7 +253,16 @@
     height: 398px;
     background-color: #f0c040;
     cursor: pointer;
-    overflow: hidden; /* Ensures no overflow issues */
+    overflow: hidden;
+    box-shadow: rgba(194, 133, 133, 0.6) 0px 4px 12px;
+    backdrop-filter: blur(3.4px);
+    transition: all ease 1s;
+    transform: scale(1);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  .trCard:hover {
+    transform: scale(1.03);
   }
   
   .trCardImg {
@@ -698,6 +710,11 @@
   .FilterDivButtonOne:hover{
     color: #f0c040;
   }
+  .animateIn{
+    opacity: 1;
+    transform: translateY(0px);
+  
+  }
   /* @media (min-width:1240px) {
     .trContentDisplay{
       justify-content: space-evenly;
@@ -734,11 +751,9 @@
   
   @media (max-width: 802px) {
   
-    .trContentDisplay{
-      grid-template-columns: repeat(auto-fit, minmax(237px, 1fr));
+    .trContentDisplay {
+      grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
       gap: 10px;
-  
-  
     }
     /* .trUserName,.trUserDetail{
       font-weight: 800;
@@ -777,11 +792,30 @@
   }
   }
   @media (max-width:503px) {
-    .trContentDisplay{
+    .trContentDisplay {
       place-items: center;
+      gap: 26px;
     }
-    .TrHead{
-      text-align: center;
+    .trCard {
+      width: 90%;
+      height: 460px;
+    }
+    .trCardImg {
+      height: 390px;
+    }
+    .trUserName {
+      font-size: 20px;
+    }
+    .trUserDetails {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .LikeButton {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .SubContainer{
       margin: 10px;

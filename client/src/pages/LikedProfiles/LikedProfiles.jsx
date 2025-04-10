@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import DashStyles from "./likedprofiles.module.css";
 import { HeartStraight } from "phosphor-react";
 import { Link, useParams,useNavigate } from "react-router-dom";
@@ -103,6 +103,39 @@ const navigate=useNavigate();
       console.log("Error fetching the data", error);
     }
   };
+    const myRef = useRef([]);
+    const observerRef = useRef(null); 
+      useEffect(() => {
+        if (!observerRef.current) {
+          observerRef.current = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add(DashStyles.animateIn);
+              }
+            });
+          });
+        }
+    
+        // ✅ Ensure only unique elements are observed
+      
+    
+        myRef.current.forEach((el) => {
+          if (el && observerRef.current) observerRef.current.observe(el);
+        });
+    
+        return () => {
+          if (observerRef.current) {
+            observerRef.current.disconnect();
+          }
+        };
+      }, []);
+    
+      const setElementRef = (index) => (el) => {
+        if (el) {
+          myRef.current[index] = el;
+          if (observerRef.current) observerRef.current.observe(el);
+        }
+      };
   return (
     <div className={DashStyles.mainContainer}>
       <Nav userId={userId} />
@@ -118,7 +151,9 @@ const navigate=useNavigate();
             </div>
             <div className={DashStyles.trContentDisplay}>
               {currentLikedProfiles.map((item, index) => (
-                <div className={DashStyles.trCard} key={index}>
+                <div className={DashStyles.trCard} key={index}
+                ref={(el) => setElementRef(-1)(el)}
+                >
                   <div className={DashStyles.trCardImg}
                     onClick={() => profileView(item._id)}
                   >
