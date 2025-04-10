@@ -78,7 +78,6 @@ function AdminLogin() {
       const response = await axios.post(`${baseUrl}/api/v1/admin/login`, form);
       if (response) {
         navigate(`/Admindashboard`);
-        console.log(response.data);
         dispatch(
           setUser({
             id: response.data.userId,
@@ -149,8 +148,9 @@ function AdminLogin() {
                   name="password"
                   placeholder="password"
                   required
-                  value={form.Password}
+                  value={form.password}
                   onChange={handleChange}
+                  autoComplete="current-password"
                 />
                 <span
                   className="password-toggle"
