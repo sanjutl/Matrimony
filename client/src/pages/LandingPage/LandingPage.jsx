@@ -134,6 +134,7 @@ function LandingPage() {
                 required
                 onChange={handleChange}
                 value={form.userEmail}
+                autoComplete="username"
               />
             </label>
             <label>
@@ -145,6 +146,7 @@ function LandingPage() {
                   required
                   onChange={handleChange}
                   value={form.password}
+                  autoComplete="current-password"
                 />
                 <span
                   className="password-toggle"

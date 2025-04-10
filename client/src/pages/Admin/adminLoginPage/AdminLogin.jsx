@@ -139,6 +139,7 @@ function AdminLogin() {
                 value={form.userEmail}
                 onChange={handleChange}
                 required
+                autocomplete="username"
               />
             </label>
             <label>
