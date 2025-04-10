@@ -8,10 +8,9 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../features/slice";
 import Modal from "react-modal";
 import baseUrl from "../../baseUrl";
-import toastNotification from '../../assets/ToastAudio.mp3'
+import toastNotification from "../../assets/ToastAudio.mp3";
 import Loader from "../../component/Loader/Loadertext.jsx";
 import FooterFront from "../../component/FooterFront/FooterFront";
-
 
 function LandingPage() {
   let field = {
@@ -24,7 +23,7 @@ function LandingPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [email, setEmail] = useState("");
-  const notificationSound=new Audio(toastNotification);
+  const notificationSound = new Audio(toastNotification);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -47,15 +46,14 @@ function LandingPage() {
         { userEmail: email }
       );
       if (response.status === 200) {
-        toast.success("Password reset link sent to registered mail ID",{
-          onClose:()=>setIsModalOpen(false)
+        toast.success("Password reset link sent to registered mail ID", {
+          onClose: () => setIsModalOpen(false),
         });
-        
       }
     } catch (error) {
-      notificationSound.play().catch((err) =>
-        console.warn("Audio play error:", err)
-      );
+      notificationSound
+        .play()
+        .catch((err) => console.warn("Audio play error:", err));
       toast.error(error.response?.data?.message);
     } finally {
       setIsLoading(false);
@@ -86,17 +84,16 @@ function LandingPage() {
         const userId = response.data.userId;
         navigate(`/dashboard/${userId}`);
       }
-    } 
-    catch (error) {
+    } catch (error) {
       const message =
-        error.response?.data?.message || "Invalid email or password. Please try again.";
+        error.response?.data?.message ||
+        "Invalid email or password. Please try again.";
       setErrorMessage(message);
-      notificationSound.play().catch((err) =>
-        console.warn("Audio play error:", err)
-      );
-      toast.error(errorMessage); // Show toast
+      notificationSound
+        .play()
+        .catch((err) => console.warn("Audio play error:", err));
+      toast.error(errorMessage || "Invalid email or password. Please try again."); // Show toast
     }
-    
   };
 
   const handleChange = (e) => {
@@ -107,7 +104,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="mainLanding"> 
+    <div className="mainLanding">
       <div className="landing-main-container">
         {isLoading && (
           <div className="loader">
@@ -219,19 +216,19 @@ function LandingPage() {
               </Link>
             </div>
           </form>
-</div>
+        </div>
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
-          />
+        />
       </div>
       <ToastContainer
-  position="bottom-right"
-  autoClose={3000}
-  style={{ zIndex: 9999 }}
-  />
+        position="bottom-right"
+        autoClose={3000}
+        style={{ zIndex: 9999 }}
+      />
 
-  <FooterFront/>
+      <FooterFront />
     </div>
   );
 }
