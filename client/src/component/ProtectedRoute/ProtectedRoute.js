@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ProtectedRoute = ({ allowedRoles }) => {
-  const { token, role, id: userId } = useSelector((state) => state.user);
+  const { token, role } = useSelector((state) => state.user);
 
 
   const parsedRole = parseInt(role);

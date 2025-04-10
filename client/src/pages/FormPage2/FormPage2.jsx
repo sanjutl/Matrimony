@@ -4,11 +4,9 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import baseUrl from "../../baseUrl";
-// import image2 from "../../assets/heartshape.png";
-
 function FormPage2() {
   const [errorMessage, setErrorMessage] = useState("");
   const notifyError = (message) => toast.error(message);
@@ -50,7 +48,7 @@ function FormPage2() {
     } catch (error) {
       setErrorMessage(error.response?.data?.message || "Please try again.");
       notifyError(
-        error.response?.data?.message ||
+        errorMessage ||
           "Something went wrong. Please try again."
       );
     }

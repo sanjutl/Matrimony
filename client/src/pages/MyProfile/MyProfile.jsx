@@ -12,7 +12,6 @@ function MyProfile() {
   const [userData, setUserData] = useState({});
   const [file, setFile] = useState([]);
   const fileInputRef = useRef(null);
-  const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.id);
 
   const fetchUserData = async () => {
@@ -409,37 +408,7 @@ function MyProfile() {
                   </div>
                 </div>
               </div>
-              {/* 
-            <div className="profile-like-container">
-              <div className="profile-like-main">
-                <div className="heading">
-                  <h3>Profiles You May Like</h3>
-                </div>
-                <div className="like-card-container">
-               
-                      <div className="like-card">
-                        <div className="image-container">
-                          <img src={image} alt="Profile" />
-                        </div>
-                        <div className="description-container">
-                          <div className="name">
-                            <h5>Gopika</h5>
-                          </div>
-                          <div className="age">
-                            <p>25 Yrs</p>
-                          </div>
-                          <div className="location">
-                            <p>TVM</p>
-                          </div>
-                          <div className="view-button">
-                            <button>View Profile</button>
-                          </div>
-                        </div>
-                      </div>
-                
-                </div>
-              </div>
-            </div> */}
+              
             </div>
           </div>
           <div className="similar-profile-container">

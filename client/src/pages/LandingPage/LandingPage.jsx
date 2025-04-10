@@ -30,7 +30,6 @@ function LandingPage() {
     setShowPassword((prev) => !prev);
   };
 
-  const notifyError = (message) => toast.error(message);
   const [isLoading, setIsLoading] = useState(false);
   const [emailResendTimer, setEmailResendTimer] = useState(0);
   const navigate = useNavigate();
@@ -95,7 +94,7 @@ function LandingPage() {
       notificationSound.play().catch((err) =>
         console.warn("Audio play error:", err)
       );
-      toast.error(message); // Show toast
+      toast.error(errorMessage); // Show toast
     }
     
   };

@@ -10,7 +10,7 @@ function Report() {
   
   useEffect(()=>{
     fetchUserData()
-  },[])
+  })
   const fetchUserData=async(req,res)=>{
     try {
       const response=await axios.get (`${baseUrl}/api/v1/user/usercarddetails/${id}`)

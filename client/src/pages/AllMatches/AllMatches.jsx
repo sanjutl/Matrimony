@@ -12,7 +12,6 @@ import avatarImg from "../../assets/avatar.jpg"
 
 
 function AllMatches() {
-  const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.id);
   const [getLike, setGetLike] = useState([]);
   const [liked, setLiked] = useState({}); //state to control the likes

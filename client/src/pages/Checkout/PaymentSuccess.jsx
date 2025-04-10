@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./PaymentSucess.css"; // Import the CSS file
@@ -31,6 +31,10 @@ const PaymentSuccess = () => {
       const response = await axios.patch(
         `${baseUrl}/api/v1/user/update/${userId}`
       );
+      if(response.status===200){
+        console.log("success");
+        
+      }
     } catch (error) {
       console.log(error);
     }

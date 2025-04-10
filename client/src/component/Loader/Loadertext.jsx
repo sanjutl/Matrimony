@@ -1,4 +1,3 @@
-import { Color } from "antd/es/color-picker";
 import React from "react";
 import "./loader.css";
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Nav from "../../../component/AdminNav/Adminnav";
 import "./adminuserprofile.css";
 import { useParams } from "react-router-dom";
-import { Link, useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import Footer from "../../../component/Footer/Footer";
 import axios from "axios";
 import Modal from "react-modal";
@@ -16,7 +16,6 @@ function Adminprofile() {
   const { id } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
   const [uploadimage, setUploadimage] = useState([])
   const Navigate = useNavigate()
   const userData = async () => {

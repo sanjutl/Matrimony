@@ -94,7 +94,7 @@ function AdminLogin() {
         error.response?.data?.message ||
           "Invalid email or password. Please try again."
       );
-      notifyError(error.response?.data?.message);
+      notifyError(errorMessage);
     }
   };
   return (

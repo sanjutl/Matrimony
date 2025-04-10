@@ -11,16 +11,13 @@ import baseUrl from "../../baseUrl";
 import avatarImg from "../../assets/avatar.jpg"
 
 function LikedProfiles() {
-  const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.id);
   const [getLike, setGetLike] = useState([]);
   const [liked, setLiked] = useState({});
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("top");
   const [likedProfiles, setLikedProfiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
-    const [isModalOpen,setIsModalOpen ]=useState(false)
   const lastIndex = currentPage * itemsPerPage;
   const indexOfFirstItem = lastIndex - itemsPerPage;
   const currentLikedProfiles = likedProfiles.slice(indexOfFirstItem, lastIndex);
