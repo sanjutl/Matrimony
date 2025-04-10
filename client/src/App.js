@@ -22,7 +22,6 @@ import UserMain from "./pages/UserMain/UserMain";
 import UserSettings from "./pages/UserSettings/UserSettings";
 import LikedProfiles from "./pages/LikedProfiles/LikedProfiles";
 import ResetPassword from "./pages/Admin/Passwordreset/PasswordReset";
-import { ToastContainer } from "react-toastify";
 import MyProfile from "./pages/MyProfile/MyProfile";
 import AdminFullReport from "./pages/Admin/Reports/GetFullReport";
 import AdminSideUserReport from "./pages/Admin/Reports/Report";
@@ -35,8 +34,6 @@ import UserPasswordReset from "./pages/UserPasswordReset/PasswordReset";
 import PaymentSuccess from "./pages/Checkout/PaymentSuccess";
 import ProtectedRoute from "./component/ProtectedRoute/ProtectedRoute";
 function App() {
-  // Enable the skeleton loader UI for optimal loading.
-  const loader = "auto";
 
   return (
     <div className="App">

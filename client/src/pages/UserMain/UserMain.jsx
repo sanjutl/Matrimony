@@ -71,7 +71,7 @@ function UserMain() {
       const response = await axios.get(
         `${baseUrl}/api/v1/user/usercarddetails/${userId}`
       );
-      if (response.status == 200) {
+      if (response.status === 200) {
         setIsSubscribed(response.data.data.subscription);
       }
     } catch (error) {

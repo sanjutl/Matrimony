@@ -22,7 +22,7 @@ function FormPage1() {
   const notifyError = (message) => toast.error(message);
   const notifySuccess = (message) => toast.success(message);
   const navigate = useNavigate();
-  const { id, userEmail,token } = useSelector((state) => state.user);
+  const { id } = useSelector((state) => state.user);
 
   const handleChange = (e) => {
     setForm({
@@ -54,7 +54,7 @@ function FormPage1() {
     } catch (error) {
       setErrorMessage(error.response?.data?.message || "Please try again.");
       notifyError(
-        error.response?.data?.message ||
+        errorMessage ||
           "Something went wrong. Please try again."
       );
     }

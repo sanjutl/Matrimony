@@ -10,7 +10,6 @@ import baseUrl from "../../baseUrl";
 
 function UserSettings() {
   const { id } = useParams();
-  const dispatch = useDispatch();
   const token = useSelector((state) => state.user.token);
   
   const [username, setUsername] = useState("");
@@ -18,7 +17,6 @@ function UserSettings() {
   const [password, setPassword] = useState("");
   const [newUsername, setNewUsername] = useState("");
   const [profilePic, setProfilePic] = useState(defaultPic);
-  const [selectedFile, setSelectedFile] = useState(null);
   const [loading, setLoading] = useState(true);
 
   

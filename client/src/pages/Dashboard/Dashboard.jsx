@@ -25,8 +25,6 @@ import avatarImg from "../../assets/avatar.jpg"
 function Dashboard() {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.id);
-  const token = useSelector((state) => state.user.token);
-  const role = useSelector((state) => state.user.role);
   const navigate = useNavigate();
   const [liked, setLiked] = useState({});
   const [getLike, setGetLike] = useState([]);
@@ -54,12 +52,12 @@ function Dashboard() {
       autoClose: 3000,
       closeOnClick: true,
     });
-  const toggleLike = (id) => {
-    setLiked((prev) => ({
-      ...prev,
-      [id]: !prev[id], // Toggle the like state
-    }));
-  };
+  // const toggleLike = (id) => {
+  //   setLiked((prev) => ({
+  //     ...prev,
+  //     [id]: !prev[id], // Toggle the like state
+  //   }));
+  // };
 
   // to fetch the liked users
   const getLikedProfiles = async () => {
@@ -100,7 +98,9 @@ function Dashboard() {
         `${baseUrl}/api/v1/user/likeProfile/${userId}`,
         { likedId: id }
       );
-
+      if(response.status===200){
+        console.log("like")
+      }
       // If successfully liked, refresh liked profiles
       getLikedProfiles();
     } catch (error) {

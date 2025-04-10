@@ -39,6 +39,7 @@ function PasswordReset() {
 
   return (
     <div className="main-reset-container">
+      <ToastContainer/>
       <div className="reset-container">
         <h1>Reset Your Password</h1>
 

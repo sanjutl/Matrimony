@@ -21,7 +21,6 @@ function LoginPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const notifyError = (message) => toast.error(message);
-  const notifySuccess = (message) => toast.success(message);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
     const notificationSound=new Audio(toastNotification);
@@ -60,7 +59,7 @@ function LoginPage() {
       setErrorMessage(
         error.response?.data?.message || "Please try again."
       );
-      notifyError(error.response?.data?.message || "Something went wrong. Please try again.");
+      notifyError(errorMessage || "Something went wrong. Please try again.");
     }finally {
       setIsLoading(false); // Stop spinner
     }
