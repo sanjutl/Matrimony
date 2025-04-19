@@ -244,7 +244,7 @@ function MyProfile() {
                       <span className="material-icons profiles-icon">
                         account_circle
                       </span>
-                      <p>Profile Created By</p>
+                      <p>Profile Created For</p>
                     </div>
                     <div className="prof-detail same1">
                       {userData.relation ? userData.relation : ""}

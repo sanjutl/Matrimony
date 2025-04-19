@@ -490,6 +490,7 @@ function FormPage5() {
                       name="educationDetails"
                       onChange={handleChange}
                       value={form.educationDetails || ""}
+                      required
                     />
                   </div>
                   <div className={styles.helperTextDiv}></div>
@@ -517,7 +518,13 @@ function FormPage5() {
                       )}
                     </div>
                   </div>
-                  <div className={styles.helperTextDiv}></div>
+                  <div className={styles.helperTextDiv}>
+                  {errors.employmentStatus && (
+                    <p className={styles.errorMessage}>
+                      {errors.employmentStatus}
+                    </p>
+                  )}
+                  </div>
                 </div>
               </div>
               <div className={styles.formGroup}>
@@ -547,11 +554,7 @@ function FormPage5() {
                     </select>
                   </div>
                   <div className={styles.helperTextDiv}></div>
-                  {errors.employmentStatus && (
-                    <p className={styles.errorMessage}>
-                      {errors.employmentStatus}
-                    </p>
-                  )}
+                
                 </div>
               </div>
               <div className={styles.formGroup}>

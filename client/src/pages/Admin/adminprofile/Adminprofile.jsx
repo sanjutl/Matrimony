@@ -142,7 +142,7 @@ function Adminprofile() {
             </div>
 
             <div className="profile-location-container">
-              <span>{data?.city || "Nil"}</span>
+              <span>{data?.location || "Nil"}</span>
             </div>
             {/* <div className="premium-container">
               <h3>Premium</h3>
@@ -157,13 +157,13 @@ function Adminprofile() {
                   <h3>About {data?.firstName || "user"}</h3>
                 </div>
                 <div className="description-container">
-                  <p>{data?.about || "Nil"}</p>
+                  <p>{data?.about || ""}</p>
                 </div>
               </div>
               <div className="basic-details-container">
                 <div className="basic-details">
                   <div className="heading">
-                    <h4>Her basic details</h4>
+                    <h4>Basic details</h4>
                   </div>
                   <div className="age-container details-main">
                     <div className="prof-detail same">
@@ -184,8 +184,9 @@ function Adminprofile() {
                       <p>Degree</p>
                     </div>
                     <div className="prof-detail same1">
-                      <p>{data?.educationDetails || "Nil"}</p>
-                    </div>
+  <p>{data?.educationDetails ? data.educationDetails.charAt(0).toUpperCase() + data.educationDetails.slice(1) : "Nil"}</p>
+</div>
+
                   </div>
                   <div className="location-container details-main">
                     <div className="prof-detail same">
@@ -195,7 +196,7 @@ function Adminprofile() {
                       <p>Location</p>
                     </div>
                     <div className="prof-detail same1">
-                      <p>{data.state || "Nil"}</p>
+                      <p>{data.location || "Nil"}</p>
                     </div>
                   </div>
                   <div className="spoken-language-container details-main">
@@ -300,7 +301,7 @@ function Adminprofile() {
                     <p>Dosham</p>
                   </div>
                   <div className="prof-detail same1">
-                    {data?.dosham || "Nil"}
+                    {data?.dosham || ""}
                   </div>
                 </div>
               </div>
